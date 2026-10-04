@@ -1,0 +1,50 @@
+name: Update price data
+
+on:
+  schedule:
+    - cron: "17 * * * *"        # every hour, at 17 minutes past
+  workflow_dispatch:             # "Run workflow" button for a manual check
+    inputs:
+      allow_big_change:
+        description: "Tick only if you really removed lots of prices at once"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: price-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check live prices
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+          SHOPIFY_ADMIN_TOKEN: ${{ secrets.SHOPIFY_ADMIN_TOKEN }}
+          MEDEAZY_ALLOW_BIG_CHANGE: ${{ inputs.allow_big_change && '1' || '0' }}
+        run: python scripts/update_prices.py
+
+      - name: Save and publish
+        run: |
+          git config user.name "medeazy-price-bot"
+          git config user.email "medeazy-price-bot@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish."
+          else
+            git commit -m "Price data update $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
