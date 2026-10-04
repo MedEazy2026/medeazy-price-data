@@ -1,0 +1,148 @@
+{%- comment -%}
+  "How much does it cost" guide for a treatment price page, printed into the HTML from the daily price summary
+  (shop metafield medeazy.prices), so search engines read today's figures without running any script.
+  - Price by dose: cheapest, average, highest and per week
+  - What the first months cost when stepping up one dose a month (cheapest, average and dearest totals)
+  - The three cheapest pharmacies for each dose
+  - Free text blocks (why prices differ, how to pay less, comparisons), which accept live price tokens such as {min:mounjaro:2.5mg}
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign mz_db = shop.metafields.medeazy.prices.value -%}
+{%- assign mz_key = s.treatment | strip -%}
+{%- assign mz_t = mz_db.t[mz_key] -%}
+{%- if mz_t and mz_t.soon != true and mz_t.lo_v -%}
+{%- assign mz_wk = s.weeks | default: 4 -%}
+{%- comment -%} Totals for the step-up months {%- endcomment -%}
+{%- assign mz_steps = s.steps | split: ',' -%}
+{%- assign mz_sum_lo = 0 -%}{%- assign mz_sum_avg = 0 -%}{%- assign mz_sum_hi = 0 -%}{%- assign mz_steps_ok = true -%}
+{%- for st in mz_steps -%}
+  {%- assign mz_sk = st | downcase | remove: ' ' -%}
+  {%- assign mz_c = mz_t.c[mz_sk] -%}
+  {%- if mz_c and mz_c.min_v -%}
+    {%- assign mz_av = mz_c.avg_v | default: 0 -%}
+    {%- if mz_av == 0 -%}{%- assign mz_av = mz_c.avg | remove: '£' | remove: ',' | plus: 0 -%}{%- endif -%}
+    {%- assign mz_sum_lo = mz_sum_lo | plus: mz_c.min_v -%}
+    {%- assign mz_sum_avg = mz_sum_avg | plus: mz_av -%}
+    {%- assign mz_sum_hi = mz_sum_hi | plus: mz_c.max_v -%}
+  {%- else -%}{%- assign mz_steps_ok = false -%}{%- endif -%}
+{%- endfor -%}
+{%- assign mz_save = mz_sum_hi | minus: mz_sum_lo -%}
+{%- comment -%} Smallest and largest gap between cheapest and dearest, across doses {%- endcomment -%}
+{%- assign mz_gap_lo = 99999 -%}{%- assign mz_gap_hi = 0 -%}
+{%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{%- assign mz_c = mz_t.c[mz_ck] -%}
+  {%- if mz_c.min_v -%}{%- assign mz_g = mz_c.max_v | minus: mz_c.min_v | round -%}
+    {%- if mz_g < mz_gap_lo -%}{%- assign mz_gap_lo = mz_g -%}{%- endif -%}{%- if mz_g > mz_gap_hi -%}{%- assign mz_gap_hi = mz_g -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+<style>
+  .mzg .mzg-sec { padding-top: 8px; padding-bottom: 8px; }
+  .mzg h2 { margin: 0 0 10px; }
+  .mzg h3 { margin: 28px 0 10px; }
+  .mzg p { max-width: 75ch; }
+  .mzg .mzg-tw { overflow-x: auto; margin: 16px 0 6px; border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; }
+  .mzg table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; }
+  .mzg th, .mzg td { padding: 11px 14px; text-align: left; border: 0; border-top: 1px solid var(--mz-line, #E2ECEA); white-space: nowrap; letter-spacing: normal; }
+  .mzg thead th { border-top: 0; background: var(--mz-bg, #F2F8F7); font-size: 13px; font-weight: 700; color: var(--mz-muted, #4A5E61); }
+  .mzg tbody th { font-weight: 700; }
+  .mzg td.lo { font-weight: 700; }
+  .mzg .ph { display: block; font-size: 13px; color: var(--mz-muted, #4A5E61); font-weight: 400; }
+  .mzg .mzg-note { font-size: 14px; color: var(--mz-muted, #4A5E61); margin-top: 8px; }
+  .mzg .mzg-totals { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 16px 0 8px; }
+  .mzg .mzg-total { border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; padding: 14px 16px; background: #fff; }
+  .mzg .mzg-total b { display: block; font-size: 26px; line-height: 1.2; }
+  .mzg .mzg-total span { font-size: 14px; color: var(--mz-muted, #4A5E61); }
+  .mzg .mzg-total.is-lo { border-color: currentColor; }
+</style>
+<div class="mz mzg" id="mz-price-guide-{{ mz_key }}"><section class="mz-sec mzg-sec"><div class="mz-wrap">
+  <div class="mz-card mz-rte">
+    {%- if s.eyebrow != blank -%}<p class="mz-eyebrow">{{ s.eyebrow | escape }}</p>{%- endif -%}
+    <h2>{% render 'mz-text', text: s.heading %}</h2>
+    {% render 'mz-text', text: s.intro %}
+
+    <div class="mzg-tw"><table>
+      <caption class="mz-sr">{{ mz_t.full }} price by dose in the UK, {{ mz_t.n }} GPhC-registered pharmacies, {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
+      <thead><tr><th scope="col">Dose</th><th scope="col">Cheapest today</th><th scope="col">Average</th><th scope="col">Highest</th>{%- if mz_wk > 0 -%}<th scope="col">Per week (cheapest)</th>{%- endif -%}</tr></thead>
+      <tbody>
+      {%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{%- assign mz_c = mz_t.c[mz_ck] -%}
+        {%- if mz_c.min_v -%}
+        <tr><th scope="row">{{ mz_t.name }} {{ col }}</th><td class="lo">{{ mz_c.min }}</td><td>{{ mz_c.avg }}</td><td>{{ mz_c.max }}</td>{%- if mz_wk > 0 -%}<td>{{ mz_c.min_v | times: 100 | divided_by: mz_wk | round | money }}</td>{%- endif -%}</tr>
+        {%- endif -%}
+      {%- endfor -%}
+      </tbody>
+    </table></div>
+    <p class="mzg-note">Monthly prices for {{ s.supply | default: 'one month’s supply' }}, from {{ mz_t.n }} GPhC-registered UK pharmacies. Where a pharmacy offers a discount code, the price shown is after that code. Updated {{ mz_db.updated | date: '%-d %B %Y' }}.</p>
+
+    {%- if mz_steps_ok and mz_steps.size > 1 and s.steps_heading != blank -%}
+    <h3>{{ s.steps_heading | escape }}</h3>
+    <p>{{ s.steps_text | escape }} costs <strong>{{ mz_sum_lo | times: 100 | round | money | remove: '.00' }}</strong> if you pay the cheapest price at each dose, <strong>{{ mz_sum_avg | times: 100 | round | money | remove: '.00' }}</strong> at average prices and <strong>{{ mz_sum_hi | times: 100 | round | money | remove: '.00' }}</strong> at the most expensive pharmacies. Choosing carefully saves about <strong>{{ mz_save | round | times: 100 | money | remove: '.00' }}</strong> over {{ s.steps_period | escape }}.</p>
+    <div class="mzg-totals" aria-hidden="true">
+      <div class="mzg-total is-lo"><b>{{ mz_sum_lo | times: 100 | round | money | remove: '.00' }}</b><span>at the cheapest pharmacies</span></div>
+      <div class="mzg-total"><b>{{ mz_sum_avg | times: 100 | round | money | remove: '.00' }}</b><span>at average prices</span></div>
+      <div class="mzg-total"><b>{{ mz_sum_hi | times: 100 | round | money | remove: '.00' }}</b><span>at the dearest pharmacies</span></div>
+    </div>
+    {%- if s.steps_note != blank -%}<p class="mzg-note">{{ s.steps_note | escape }}</p>{%- endif -%}
+    {%- endif -%}
+
+    {%- if s.cheap_heading != blank -%}
+    <h3>{{ s.cheap_heading | escape }}</h3>
+    <div class="mzg-tw"><table>
+      <caption class="mz-sr">The three cheapest UK pharmacies for each {{ mz_t.name }} dose, {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
+      <thead><tr><th scope="col">Dose</th><th scope="col">Cheapest</th><th scope="col">2nd</th><th scope="col">3rd</th></tr></thead>
+      <tbody>
+      {%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{%- assign mz_c = mz_t.c[mz_ck] -%}
+        {%- if mz_c.top.size > 0 -%}
+        <tr><th scope="row">{{ mz_t.name }} {{ col }}</th>
+          {%- for i in (0..2) -%}<td{% if i == 0 %} class="lo"{% endif %}>{%- if mz_c.top[i] -%}{{ mz_c.topp[i] }}<span class="ph">{{ mz_c.top[i] | escape }}</span>{%- else -%}—{%- endif -%}</td>{%- endfor -%}
+        </tr>
+        {%- endif -%}
+      {%- endfor -%}
+      </tbody>
+    </table></div>
+    <p class="mzg-note">Where a pharmacy offers a discount code, the price shown is after that code. Every pharmacy listed is checked against the GPhC register.</p>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }}>
+      {%- if block.settings.heading != blank -%}<h3>{% render 'mz-text', text: block.settings.heading %}</h3>{%- endif -%}
+      {%- if block.type == 'why' and mz_gap_hi > 0 -%}
+        <p>At every dose, the gap between the cheapest and dearest pharmacy is {% if mz_gap_lo == mz_gap_hi %}about <strong>£{{ mz_gap_hi }}</strong>{% else %}between <strong>£{{ mz_gap_lo }}</strong> and <strong>£{{ mz_gap_hi }}</strong>{% endif %} a month. {{ block.settings.lead | escape }}</p>
+      {%- endif -%}
+      {% render 'mz-text', text: block.settings.text %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div></section></div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "MedEazy price guide",
+  "settings": [
+    { "type": "text", "id": "treatment", "label": "Treatment key", "default": "mounjaro", "info": "mounjaro, wegovy, wegovy-pill or orlistat" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Prices explained" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How much does Mounjaro cost in the UK?" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "info": "Accepts live price tokens such as {min:mounjaro:2.5mg}" },
+    { "type": "number", "id": "weeks", "label": "Weeks in one month's supply (0 hides the per-week column)", "default": 4 },
+    { "type": "text", "id": "supply", "label": "Supply wording", "default": "one month’s supply of four weekly pens" },
+    { "type": "header", "content": "First months" },
+    { "type": "text", "id": "steps_heading", "label": "Heading", "default": "What you'll pay in your first six months" },
+    { "type": "text", "id": "steps", "label": "Doses, one per month, comma separated", "default": "2.5mg,5mg,7.5mg,10mg,12.5mg,15mg" },
+    { "type": "text", "id": "steps_text", "label": "Sentence start", "default": "Stepping up one dose a month from 2.5mg to 15mg" },
+    { "type": "text", "id": "steps_period", "label": "Period", "default": "six months" },
+    { "type": "text", "id": "steps_note", "label": "Note", "default": "Many people stay on a lower dose for longer, and your prescriber decides when you move up, so treat this as a guide rather than a quote." },
+    { "type": "header", "content": "Cheapest by dose" },
+    { "type": "text", "id": "cheap_heading", "label": "Heading (blank hides the table)", "default": "Cheapest Mounjaro today, by dose" }
+  ],
+  "blocks": [
+    { "type": "why", "name": "Why prices differ", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Why prices differ between pharmacies" },
+      { "type": "text", "id": "lead", "label": "Sentence after the price gap" },
+      { "type": "richtext", "id": "text", "label": "Text", "info": "Accepts live price tokens" }
+    ] },
+    { "type": "text", "name": "Text", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading" },
+      { "type": "richtext", "id": "text", "label": "Text", "info": "Accepts live price tokens" }
+    ] }
+  ],
+  "presets": [{ "name": "MedEazy price guide" }]
+}
+{% endschema %}

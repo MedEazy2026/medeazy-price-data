@@ -1,0 +1,88 @@
+{%- comment -%}
+  Today's discount codes for one treatment, printed into the HTML from the daily price summary
+  (shop metafield medeazy.prices, list "dc": pharmacy, code, what it gives, link, starting price after the offer).
+  Cheapest starting price first. A small script adds copy-to-clipboard buttons; everything is readable without it.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign mz_db = shop.metafields.medeazy.prices.value -%}
+{%- assign mz_key = s.treatment | strip -%}
+{%- assign mz_t = mz_db.t[mz_key] -%}
+{%- assign mz_first = mz_t.cols | first -%}
+<style>
+  .mzdc .mzdc-tw { overflow-x: auto; margin: 16px 0 6px; border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; }
+  .mzdc table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; }
+  .mzdc th, .mzdc td { padding: 12px 14px; text-align: left; vertical-align: middle; border: 0; border-top: 1px solid var(--mz-line, #E2ECEA); letter-spacing: normal; }
+  .mzdc thead th { border-top: 0; background: var(--mz-bg, #F2F8F7); font-size: 13px; font-weight: 700; color: var(--mz-muted, #4A5E61); white-space: nowrap; }
+  .mzdc tbody th a { font-weight: 700; }
+  .mzdc .code { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .mzdc .code code { font-family: ui-monospace, "JetBrains Mono", monospace; font-weight: 700; font-size: 14px; padding: 5px 10px; border: 1.5px dashed currentColor; border-radius: 8px; background: #fff; white-space: nowrap; }
+  .mzdc .copy { font: inherit; font-size: 13px; font-weight: 700; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--mz-line, #E2ECEA); background: var(--mz-bg, #F2F8F7); cursor: pointer; }
+  .mzdc .noc { font-size: 14px; color: var(--mz-muted, #4A5E61); }
+  .mzdc td.pr { white-space: nowrap; font-weight: 700; }
+  .mzdc .mzdc-note { font-size: 14px; color: var(--mz-muted, #4A5E61); margin-top: 8px; }
+</style>
+<div class="mz mzdc"><section class="mz-sec" style="padding-top:8px"><div class="mz-wrap">
+  <div class="mz-card mz-rte">
+    {%- if s.eyebrow != blank -%}<p class="mz-eyebrow">{{ s.eyebrow | escape }}</p>{%- endif -%}
+    <h2>{% render 'mz-text', text: s.heading %}</h2>
+    {% render 'mz-text', text: s.intro %}
+    {%- if mz_t.dc.size > 0 -%}
+    <div class="mzdc-tw"><table>
+      <caption class="mz-sr">{{ mz_t.name }} discount codes from GPhC-registered UK pharmacies, checked {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
+      <thead><tr><th scope="col">Pharmacy</th><th scope="col">Code</th><th scope="col">What you get</th><th scope="col">{{ mz_t.name }} {{ mz_first }} with the offer</th></tr></thead>
+      <tbody>
+      {%- for o in mz_t.dc -%}
+        {%- assign mz_d = o.d | strip -%}
+        {%- assign mz_d4 = mz_d | slice: 0, 4 | downcase -%}{%- if mz_d4 == 'for ' -%}{%- assign mz_d = mz_d | slice: 4, 200 -%}{%- endif -%}
+        <tr>
+          <th scope="row">{%- if o.u != blank -%}<a href="{{ o.u | escape }}" target="_blank" rel="sponsored nofollow noopener">{{ o.p | escape }}</a>{%- else -%}{{ o.p | escape }}{%- endif -%}</th>
+          <td>{%- if o.k != blank -%}{%- assign mz_codes = o.k | replace: ' and ', ',' | replace: ' or ', ',' | replace: ' & ', ',' | split: ',' -%}{%- for c in mz_codes -%}<span class="code"><code>{{ c | strip | escape }}</code><button type="button" class="copy" data-copy="{{ c | strip | escape }}" hidden>Copy</button></span> {% endfor -%}{%- else -%}<span class="noc">No code needed</span>{%- endif -%}</td>
+          <td>{{ mz_d | default: 'Discount applied at checkout' | escape }}</td>
+          <td class="pr">{{ o.f }}</td>
+        </tr>
+      {%- endfor -%}
+      </tbody>
+    </table></div>
+    <p class="mzdc-note">{{ mz_t.dc.size }} of {{ mz_t.n }} pharmacies have an offer today, checked {{ mz_db.updated | date: '%-d %B %Y' }}. Prices are for one month at the {{ mz_first }} starting dose, after the offer. Most codes are for new customers only. Always check the final price at checkout.</p>
+    {%- else -%}
+    <p>No pharmacy has a {{ mz_t.name }} discount code listed today. We check every day.</p>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}<h3>{% render 'mz-text', text: block.settings.heading %}</h3>{%- endif -%}
+        {% render 'mz-text', text: block.settings.text %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div></section></div>
+<script>
+(function () {
+  if (!navigator.clipboard) return;
+  document.querySelectorAll('.mzdc .copy').forEach(function (b) {
+    b.hidden = false;
+    b.addEventListener('click', function () {
+      navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+        b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+      });
+    });
+  });
+})();
+</script>
+{% schema %}
+{
+  "name": "MedEazy discount codes",
+  "settings": [
+    { "type": "text", "id": "treatment", "label": "Treatment key", "default": "mounjaro" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Checked today" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Mounjaro discount codes today" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "info": "Accepts live price tokens" }
+  ],
+  "blocks": [
+    { "type": "text", "name": "Text", "settings": [
+      { "type": "text", "id": "heading", "label": "Heading" },
+      { "type": "richtext", "id": "text", "label": "Text", "info": "Accepts live price tokens" }
+    ] }
+  ],
+  "presets": [{ "name": "MedEazy discount codes" }]
+}
+{% endschema %}

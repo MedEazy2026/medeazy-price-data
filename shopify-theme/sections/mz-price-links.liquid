@@ -1,0 +1,38 @@
+{%- comment -%}
+  "Compare today's prices" links for guides and other pages: plain links with descriptive words
+  ("Mounjaro price comparison", "Wegovy price comparison", "Mounjaro discount codes") and today's
+  lowest price from the daily price summary (shop metafield medeazy.prices). Wegovy goes first on Wegovy guides.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign mz_db = shop.metafields.medeazy.prices.value -%}
+{%- if mz_db -%}
+{%- assign mz_tags = '' -%}{%- if article -%}{%- assign mz_tags = article.tags | join: ' ' | downcase | append: ' ' | append: article.handle -%}{%- endif -%}
+{%- assign mz_m = mz_db.t.mounjaro -%}{%- assign mz_w = mz_db.t.wegovy -%}{%- assign mz_p = mz_db.t['wegovy-pill'] -%}
+<style>
+  .mzpl ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .mzpl li a { display: block; padding: 14px 16px; border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; background: #fff; text-decoration: none; font-weight: 700; }
+  .mzpl li a span { display: block; font-weight: 400; font-size: 14px; color: var(--mz-muted, #4A5E61); margin-top: 2px; }
+  .mzpl li a:hover { border-color: currentColor; }
+</style>
+<div class="mz mzpl"><section class="mz-sec mz-sec--tight"><div class="mz-wrap">
+  <h2 style="font-size:clamp(22px,2.4vw,28px)">{{ s.heading | escape }}</h2>
+  <ul>
+    {%- capture mz_li_m -%}<li><a href="/pages/{{ mz_m.handle }}">Mounjaro price comparison<span>{{ mz_m.n }} UK pharmacies, from {{ mz_m.lo }} a month</span></a></li>{%- endcapture -%}
+    {%- capture mz_li_w -%}<li><a href="/pages/{{ mz_w.handle }}">Wegovy price comparison<span>{{ mz_w.n }} UK pharmacies, from {{ mz_w.lo }} a month</span></a></li>{%- endcapture -%}
+    {%- assign mz_wfirst = false -%}{%- if mz_tags contains 'wegovy' -%}{%- assign mz_wfirst = true -%}{%- endif -%}{%- if mz_tags contains 'mounjaro' -%}{%- assign mz_wfirst = false -%}{%- endif -%}
+    {%- if mz_wfirst -%}{{ mz_li_w }}{{ mz_li_m }}{%- else -%}{{ mz_li_m }}{{ mz_li_w }}{%- endif -%}
+    {%- if mz_p and mz_p.lo_v -%}<li><a href="/pages/{{ mz_p.handle }}">Wegovy pill price comparison<span>{{ mz_p.n }} UK pharmacies, from {{ mz_p.lo }} a month</span></a></li>{%- endif -%}
+    {%- if s.show_codes -%}<li><a href="/pages/mounjaro-discount-codes">Mounjaro discount codes<span>{{ mz_m.codes }} pharmacies with an offer today</span></a></li>{%- endif -%}
+  </ul>
+</div></section></div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "MedEazy price links",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Compare today's prices" },
+    { "type": "checkbox", "id": "show_codes", "label": "Link to the Mounjaro discount codes page", "default": true }
+  ],
+  "presets": [{ "name": "MedEazy price links" }]
+}
+{% endschema %}

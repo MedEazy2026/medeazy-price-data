@@ -1,0 +1,43 @@
+{%- comment -%}
+  Search title with today's lowest price, from the daily price summary (shop metafield medeazy.prices).
+  Treatment price pages: "Mounjaro Price Comparison UK: From £99 at 71 Pharmacies (Oct 2026)".
+  Mounjaro discount codes page: "Mounjaro Discount Codes UK (Oct 2026): 13 Offers Checked Daily".
+  Dose guides (handles like mounjaro-5mg-price-uk, wegovy-2-4mg-price-uk, wegovy-pill-25mg-price-uk): "Mounjaro 5mg Price UK: From £128 (Oct 2026)".
+  Outputs nothing for every other page, so their own SEO title is used.
+{%- endcomment -%}
+{%- assign mz_db = shop.metafields.medeazy.prices.value -%}
+{%- assign mz_ttl = '' -%}
+{%- if mz_db -%}
+  {%- assign mz_mon = mz_db.updated | date: '%b %Y' -%}
+  {%- if request.page_type == 'page' and page -%}
+    {%- if page.handle == 'mounjaro-discount-codes' -%}
+      {%- capture mz_ttl -%}Mounjaro Discount Codes UK ({{ mz_mon }}): {{ mz_db.t.mounjaro.codes }} Offers Checked Daily{%- endcapture -%}
+    {%- endif -%}
+    {%- for k in mz_db.order -%}
+      {%- assign mz_t = mz_db.t[k] -%}
+      {%- if mz_t.handle == page.handle and mz_t.soon != true and mz_t.lo_v -%}
+        {%- assign mz_nm = mz_t.name | replace: ' pill', ' Pill' -%}
+        {%- capture mz_ttl -%}{{ mz_nm }} Price Comparison UK: From {{ mz_t.lo }} at {{ mz_t.n }} Pharmacies ({{ mz_mon }}){%- endcapture -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- elsif request.page_type == 'article' and article -%}
+    {%- assign mz_h = article.handle | split: '/' | last -%}
+    {%- if mz_h contains 'mg-price-uk' -%}
+      {%- assign mz_rest = mz_h | remove: '-price-uk' -%}
+      {%- assign mz_k = '' -%}
+      {%- if mz_rest contains 'wegovy-pill-' -%}{%- assign mz_k = 'wegovy-pill' -%}{%- assign mz_dose = mz_rest | remove_first: 'wegovy-pill-' -%}
+      {%- elsif mz_rest contains 'wegovy-' -%}{%- assign mz_k = 'wegovy' -%}{%- assign mz_dose = mz_rest | remove_first: 'wegovy-' -%}
+      {%- elsif mz_rest contains 'mounjaro-' -%}{%- assign mz_k = 'mounjaro' -%}{%- assign mz_dose = mz_rest | remove_first: 'mounjaro-' -%}
+      {%- endif -%}
+      {%- if mz_k != '' -%}
+        {%- assign mz_dose = mz_dose | replace: '-', '.' -%}
+        {%- assign mz_c = mz_db.t[mz_k].c[mz_dose] -%}
+        {%- if mz_c and mz_c.min_v -%}
+          {%- assign mz_nm = mz_db.t[mz_k].name | replace: ' pill', ' Pill' -%}
+          {%- capture mz_ttl -%}{{ mz_nm }} {{ mz_c.label }} Price UK: From {{ mz_c.min }} ({{ mz_mon }}){%- endcapture -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+{{- mz_ttl | strip -}}

@@ -1,0 +1,288 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mz-page-hero",
+      "settings": {
+        "crumb_label": "Compare prices",
+        "eyebrow": "Wegovy · semaglutide",
+        "text": "Compare Wegovy (semaglutide) injection prices across GPhC-verified UK pharmacies, from 0.25mg to 7.2mg. Today the 0.25mg starting dose costs {min:wegovy:0.25mg} to {max:wegovy:0.25mg} a month, depending on the pharmacy.",
+        "show_updated": true,
+        "overlap": true
+      },
+      "blocks": {
+        "b064": {
+          "type": "stat",
+          "settings": {
+            "value": "{n:wegovy}",
+            "label": "pharmacies"
+          }
+        },
+        "b065": {
+          "type": "stat",
+          "settings": {
+            "value": "{min:wegovy:0.25mg}",
+            "label": "cheapest 0.25mg today"
+          }
+        },
+        "b066": {
+          "type": "stat",
+          "settings": {
+            "value": "{max:wegovy:0.25mg}",
+            "label": "dearest 0.25mg today"
+          }
+        },
+        "b067": {
+          "type": "stat",
+          "settings": {
+            "value": "{codes:wegovy}",
+            "label": "with offers"
+          }
+        }
+      },
+      "block_order": [
+        "b064",
+        "b065",
+        "b066",
+        "b067"
+      ]
+    },
+    "cards": {
+      "type": "mz-dose-cards",
+      "settings": {
+        "treatment": "wegovy"
+      }
+    },
+    "custom_liquid_wr4U8D": {
+      "type": "custom-liquid",
+      "name": "Wegovy Price Comparison",
+      "settings": {
+        "custom_liquid": "<div class=\"mz-tablewrap\">{% render 'mz-table-clean', key: 'wegovy' %}</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "verify": {
+      "type": "mz-cards",
+      "settings": {
+        "columns": "2",
+        "tight": true
+      },
+      "blocks": {
+        "b068": {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "title": "How we verify UK pharmacies",
+            "text": "<p>Every pharmacy listed on MedEazy is checked against the General Pharmaceutical Council (GPhC) public register before it's included. We check it holds a valid registration, is authorised to dispense prescription medicines online and is in good standing. Listings are reviewed regularly, and no pharmacy pays for placement.</p>"
+          }
+        },
+        "b069": {
+          "type": "card",
+          "settings": {
+            "icon": "tag",
+            "title": "About these prices",
+            "text": "<p>Prices come straight from each pharmacy and are checked daily. Where a pharmacy offers a discount code, the discounted price is shown. Some pharmacies add a consultation fee, so always confirm the final price at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b068",
+        "b069"
+      ]
+    },
+    "info": {
+      "type": "mz-treatment-info",
+      "settings": {
+        "treatment": "wegovy",
+        "heading": "What is Wegovy?",
+        "what": "<p>Wegovy is a prescription-only weekly injection containing semaglutide. It mimics GLP-1, a hormone that helps regulate appetite, so you feel fuller and eat less.</p>",
+        "who": "<p>Usually prescribed to adults with a BMI of 30 or above, or 27 or above with at least one weight-related condition. A clinical assessment and valid prescription are required.</p>",
+        "dosing": "<p>Treatment starts at 0.25mg weekly and steps up through 0.5mg, 1mg, 1.7mg and 2.4mg. Some patients move on to the 7.2mg dose if their prescriber advises it.</p>"
+      }
+    },
+    "faq": {
+      "type": "mz-faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Wegovy questions",
+        "text": "Answers on price, prescriptions and what to expect."
+      },
+      "blocks": {
+        "b070": {
+          "type": "question",
+          "settings": {
+            "question": "How much does Wegovy cost in the UK?",
+            "answer": "<p>From {min:wegovy:0.25mg} for the 0.25mg starting dose. The 2.4mg dose costs {min:wegovy:2.4mg} to {max:wegovy:2.4mg}, and 7.2mg starts from {min:wegovy:7.2mg}.</p>"
+          }
+        },
+        "b071": {
+          "type": "question",
+          "settings": {
+            "question": "Is Wegovy available on the NHS?",
+            "answer": "<p>Wegovy is available on the NHS in limited circumstances. Private prescriptions are also available through registered UK pharmacies.</p>"
+          }
+        },
+        "b072": {
+          "type": "question",
+          "settings": {
+            "question": "Why do Wegovy prices differ between pharmacies?",
+            "answer": "<p>Prices vary because of supplier agreements, dispensing fees and pharmacy overheads. The table shows each pharmacy's current price side by side.</p>"
+          }
+        },
+        "b073": {
+          "type": "question",
+          "settings": {
+            "question": "Are there extra costs beyond the medicine?",
+            "answer": "<p>Some pharmacies charge a consultation or prescription fee. Always check the full cost at checkout before you order.</p>"
+          }
+        },
+        "b074": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need a prescription for Wegovy injections?",
+            "answer": "<p>Yes. Wegovy is prescription-only. You can get a prescription through a GPhC-registered online pharmacy via a digital consultation, with no GP referral needed.</p>"
+          }
+        },
+        "b075": {
+          "type": "question",
+          "settings": {
+            "question": "How much weight can I lose with Wegovy?",
+            "answer": "<p>In clinical trials, adults lost around 15% of their body weight on average over 68 weeks, alongside diet and exercise. Individual results vary.</p>"
+          }
+        },
+        "b076": {
+          "type": "question",
+          "settings": {
+            "question": "Can I switch pharmacy to get a better price on Wegovy?",
+            "answer": "<p>Yes. You can move to another GPhC-registered pharmacy at any time. The new pharmacy will check your prescription history before dispensing.</p>"
+          }
+        },
+        "b100": {
+          "type": "question",
+          "settings": {
+            "question": "How much is Wegovy per week?",
+            "answer": "<p>Each month's supply is four weekly doses, so the weekly cost is a quarter of the monthly price. The per-week column in the price-by-dose table above shows today's figure for every dose, from {min:wegovy:0.25mg} a month on 0.25mg.</p>"
+          }
+        },
+        "b101": {
+          "type": "question",
+          "settings": {
+            "question": "How much is Wegovy 7.2mg?",
+            "answer": "<p>From {min:wegovy:7.2mg} a month at the cheapest pharmacy that sells it, up to {max:wegovy:7.2mg}. Fewer pharmacies offer 7.2mg than the lower doses, so it pays to compare.</p>"
+          }
+        },
+        "b102": {
+          "type": "question",
+          "settings": {
+            "question": "Is cheaper Wegovy safe?",
+            "answer": "<p>If the pharmacy is on the GPhC register, yes. It supplies the same licensed Novo Nordisk pens; the price difference is the pharmacy's margin and offers.</p>"
+          }
+        },
+        "b103": {
+          "type": "question",
+          "settings": {
+            "question": "Are there discount codes for Wegovy?",
+            "answer": "<p>Yes. {codes:wegovy} pharmacies currently list an offer for Wegovy. Codes appear in the Discount column of the table; tap one to reveal and copy it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b070",
+        "b100",
+        "b101",
+        "b071",
+        "b072",
+        "b073",
+        "b102",
+        "b103",
+        "b074",
+        "b075",
+        "b076"
+      ]
+    },
+    "also": {
+      "type": "mz-also",
+      "settings": {
+        "current": "wegovy"
+      }
+    },
+    "disclaimer": {
+      "type": "mz-disclaimer",
+      "settings": {
+        "heading": "Important",
+        "text": "<p>MedEazy provides general information only and is not medical advice. Prescription-only medicines can only be supplied after an individual clinical assessment by a qualified healthcare professional. Always speak to your GP, pharmacist-prescriber or clinician about whether a treatment is suitable.</p>"
+      }
+    },
+    "guides": {
+      "type": "mz-related",
+      "settings": {
+        "heading": "Wegovy guides",
+        "blog": "comparisons-guides",
+        "tags": "Wegovy,wegovy",
+        "only_tagged": false,
+        "limit": 3,
+        "button_label": "All guides",
+        "tight": true
+      }
+    },
+    "guide": {
+      "type": "mz-price-guide",
+      "settings": {
+        "treatment": "wegovy",
+        "eyebrow": "Prices explained",
+        "heading": "How much does Wegovy cost in the UK?",
+        "intro": "<p>Wegovy injections cost from {min:wegovy:0.25mg} a month for the 0.25mg starting dose to {min:wegovy:2.4mg} a month for the 2.4mg dose, at the cheapest of {n:wegovy} GPhC-registered UK pharmacies today. At the average pharmacy you would pay {avg:wegovy:0.25mg} to {avg:wegovy:2.4mg}. The higher 7.2mg dose starts from {min:wegovy:7.2mg}. Each price is for one month's supply of four weekly doses.</p>",
+        "weeks": 4,
+        "supply": "one month’s supply of four weekly doses",
+        "steps_heading": "What you'll pay in your first five months",
+        "steps": "0.25mg,0.5mg,1mg,1.7mg,2.4mg",
+        "steps_text": "Stepping up one dose a month from 0.25mg to 2.4mg",
+        "steps_period": "five months",
+        "steps_note": "Your prescriber decides when you move up, and some people stay on a dose for longer, so treat this as a guide rather than a quote.",
+        "cheap_heading": "Cheapest Wegovy today, by dose"
+      },
+      "blocks": {
+        "g01": {
+          "type": "why",
+          "settings": {
+            "heading": "Why Wegovy prices differ so much",
+            "lead": "Every pharmacy supplies the same Novo Nordisk pen, so the gap is down to pricing:",
+            "text": "<ul><li><strong>Introductory prices.</strong> Some pharmacies discount the first month only. Check the price from month two.</li><li><strong>Discount codes.</strong> {codes:wegovy} of the {n:wegovy} pharmacies currently offer a code, often for the first order only.</li><li><strong>What's included.</strong> Most prices include the consultation, prescription and delivery. A few charge for these separately.</li><li><strong>Fewer sellers at 7.2mg.</strong> Fewer pharmacies offer the 7.2mg dose so far, so prices there vary the most: from {min:wegovy:7.2mg} to {max:wegovy:7.2mg} today.</li></ul>"
+          }
+        },
+        "g02": {
+          "type": "text",
+          "settings": {
+            "heading": "Wegovy or Mounjaro: which costs less?",
+            "text": "<p>The Wegovy starting dose costs from {min:wegovy:0.25mg} today, against {min:mounjaro:2.5mg} for Mounjaro 2.5mg. The standard top dose, Wegovy 2.4mg, starts at {min:wegovy:2.4mg}, against {min:mounjaro:15mg} for Mounjaro 15mg. They are different medicines, and the right one is a clinical decision for your prescriber, not a price decision. See our <a href=\"/pages/mounjaro-price-comparison\">Mounjaro price comparison</a>.</p>"
+          }
+        },
+        "g03": {
+          "type": "text",
+          "settings": {
+            "heading": "Wegovy injection or Wegovy pill?",
+            "text": "<p>The daily Wegovy pill costs from {min:wegovy-pill:1.5mg} a month at 1.5mg to {min:wegovy-pill:25mg} at 25mg, against {min:wegovy:2.4mg} for the 2.4mg injection. See our <a href=\"/pages/wegovy-pill-pricing\">Wegovy pill price comparison</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "g01",
+        "g02",
+        "g03"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "cards",
+    "custom_liquid_wr4U8D",
+    "guide",
+    "verify",
+    "info",
+    "faq",
+    "also",
+    "guides",
+    "disclaimer"
+  ]
+}

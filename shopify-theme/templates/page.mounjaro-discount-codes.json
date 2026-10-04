@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mz-page-hero",
+      "settings": {
+        "crumb_label": "Compare prices",
+        "crumb_link": "shopify://pages/mounjaro-price-comparison",
+        "crumb_current": "Mounjaro discount codes",
+        "eyebrow": "Mounjaro · discount codes",
+        "text": "Every Mounjaro discount code from GPhC-registered UK pharmacies, checked daily. With a code, Mounjaro 2.5mg starts from {min:mounjaro:2.5mg} a month. <a href=\"/pages/mounjaro-price-comparison\">Compare every Mounjaro price</a>.",
+        "show_updated": false,
+        "overlap": false
+      },
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "{codes:mounjaro}",
+            "label": "pharmacies with an offer"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "{n:mounjaro}",
+            "label": "pharmacies checked"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "{min:mounjaro:2.5mg}",
+            "label": "cheapest 2.5mg today"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "codes": {
+      "type": "mz-discount-codes",
+      "settings": {
+        "treatment": "mounjaro",
+        "eyebrow": "Checked today",
+        "heading": "Mounjaro discount codes today",
+        "intro": "<p>These are the Mounjaro offers listed by UK pharmacies today, sorted by what the 2.5mg starting dose costs once the offer is applied. Copy the code, then enter it at the pharmacy's checkout.</p>"
+      },
+      "blocks": {
+        "t1": {
+          "type": "text",
+          "settings": {
+            "heading": "How to use a Mounjaro discount code",
+            "text": "<ol><li>Pick a pharmacy from the list and copy its code.</li><li>Click through to the pharmacy and complete its online consultation. A prescriber checks that Mounjaro is suitable for you.</li><li>Enter the code at checkout and check the total before you pay.</li></ol>"
+          }
+        },
+        "t2": {
+          "type": "text",
+          "settings": {
+            "heading": "Is the cheapest code the best deal?",
+            "text": "<p>Not always. A big first-order discount can hide a higher price from month two, and the code matters less than the price you will pay at your next dose. Compare the monthly price for every dose on our <a href=\"/pages/mounjaro-price-comparison\">Mounjaro price comparison</a>, where the cheapest 15mg price today is {min:mounjaro:15mg}.</p>"
+          }
+        },
+        "t3": {
+          "type": "text",
+          "settings": {
+            "heading": "Looking for a code for a pharmacy not listed here?",
+            "text": "<p>If a pharmacy isn't in this list, it doesn't have a Mounjaro offer listed today. We check every pharmacy daily. Found one we've missed? <a href=\"/pages/submit-your-discount\">Send it to us</a> and we'll check it before it goes live.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ]
+    },
+    "faq": {
+      "type": "mz-faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Mounjaro discount code questions",
+        "text": "Answers on codes, new and returning customers, and prices."
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Are there Mounjaro discount codes in the UK?",
+            "answer": "<p>Yes. Today {codes:mounjaro} of the {n:mounjaro} GPhC-registered pharmacies we compare list an offer for Mounjaro. The list above shows each code and what it gives.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Are there Mounjaro discount codes for existing customers?",
+            "answer": "<p>Sometimes. Most codes are for your first order, but some pharmacies offer a smaller discount to returning customers. The 'What you get' column says who each code is for.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro price with a discount code?",
+            "answer": "<p>Today the cheapest Mounjaro 2.5mg price is {min:mounjaro:2.5mg} a month at {name:mounjaro:2.5mg}. Where a pharmacy has a code, our prices already include it.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use a discount code on every dose?",
+            "answer": "<p>Usually, but check the terms. Some codes apply only to the first month or to a minimum spend, so the saving can differ by dose.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "Is it safe to buy Mounjaro with a discount code?",
+            "answer": "<p>Yes, if the pharmacy is on the GPhC register and gives you an online consultation with a prescriber. Every pharmacy on MedEazy has been checked against the register.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ]
+    },
+    "also": {
+      "type": "mz-also",
+      "settings": {
+        "heading": "Compare prices",
+        "current": ""
+      }
+    },
+    "disclaimer": {
+      "type": "mz-disclaimer",
+      "settings": {
+        "heading": "Important",
+        "text": "<p>Discount codes are for information only and are set by each pharmacy, which may change or withdraw them at any time. MedEazy may receive a commission when you click through to a pharmacy; it never affects the order of results. This is not medical advice.</p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "codes",
+    "faq",
+    "also",
+    "disclaimer"
+  ]
+}

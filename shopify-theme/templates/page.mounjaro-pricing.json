@@ -1,0 +1,329 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mz-page-hero",
+      "settings": {
+        "crumb_label": "Compare prices",
+        "eyebrow": "Mounjaro · tirzepatide",
+        "text": "Compare Mounjaro (tirzepatide) prices across GPhC-verified UK pharmacies, from the 2.5mg starting dose to 15mg. Today the 2.5mg starting dose costs {min:mounjaro:2.5mg} to {max:mounjaro:2.5mg} a month, depending on the pharmacy.",
+        "show_updated": true,
+        "overlap": true
+      },
+      "blocks": {
+        "b050": {
+          "type": "stat",
+          "settings": {
+            "value": "{n:mounjaro}",
+            "label": "pharmacies"
+          }
+        },
+        "b051": {
+          "type": "stat",
+          "settings": {
+            "value": "{min:mounjaro:2.5mg}",
+            "label": "cheapest 2.5mg today"
+          }
+        },
+        "b052": {
+          "type": "stat",
+          "settings": {
+            "value": "{max:mounjaro:2.5mg}",
+            "label": "dearest 2.5mg today"
+          }
+        },
+        "b053": {
+          "type": "stat",
+          "settings": {
+            "value": "{codes:mounjaro}",
+            "label": "with offers"
+          }
+        }
+      },
+      "block_order": [
+        "b050",
+        "b051",
+        "b052",
+        "b053"
+      ]
+    },
+    "cards": {
+      "type": "mz-dose-cards",
+      "settings": {
+        "treatment": "mounjaro"
+      }
+    },
+    "custom_liquid_x6Bar7": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "name": "Mounjaro Price Comparison",
+      "settings": {
+        "custom_liquid": "<div class=\"mz-tablewrap\">{% render 'mz-table-clean', key: 'mounjaro' %}</div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 16,
+        "padding_bottom": 52
+      }
+    },
+    "verify": {
+      "type": "mz-cards",
+      "settings": {
+        "columns": "2",
+        "tight": true
+      },
+      "blocks": {
+        "b054": {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "title": "How we verify UK pharmacies",
+            "text": "<p>Every pharmacy listed on MedEazy is checked against the General Pharmaceutical Council (GPhC) public register before it's included. We check it holds a valid registration, is authorised to dispense prescription medicines online and is in good standing. Listings are reviewed regularly, and no pharmacy pays for placement.</p>"
+          }
+        },
+        "b055": {
+          "type": "card",
+          "settings": {
+            "icon": "tag",
+            "title": "About these prices",
+            "text": "<p>Prices come straight from each pharmacy and are checked daily. Where a pharmacy offers a discount code, the discounted price is shown. Some pharmacies add a consultation fee, so always confirm the final price at checkout. See today's <a href=\"/pages/mounjaro-discount-codes\">Mounjaro discount codes</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b054",
+        "b055"
+      ]
+    },
+    "info": {
+      "type": "mz-treatment-info",
+      "settings": {
+        "treatment": "mounjaro",
+        "heading": "What is Mounjaro (tirzepatide)?",
+        "what": "<p>Mounjaro is a prescription-only injectable medicine containing tirzepatide, approved in the UK for weight management in adults. It mimics two gut hormones, GIP and GLP-1, which help regulate appetite and blood sugar, so you feel fuller and eat less.</p>",
+        "who": "<p>Usually prescribed to adults with a BMI of 30 or above, or 27 or above with at least one weight-related condition such as high blood pressure or type 2 diabetes. A clinical assessment and valid prescription are required; it can't be bought over the counter.</p>",
+        "dosing": "<p>Treatment starts at 2.5mg once a week and can be increased in steps up to 15mg, depending on how well you tolerate it and how you respond. Prices vary a lot by dose, so check the table for your current dose.</p>"
+      }
+    },
+    "faq": {
+      "type": "mz-faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Mounjaro questions",
+        "text": "Answers on price, prescriptions and what to expect."
+      },
+      "blocks": {
+        "b056": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro price in the UK right now?",
+            "answer": "<p>Today the 2.5mg starter pen starts from {min:mounjaro:2.5mg} at {name:mounjaro:2.5mg}. The table above is sorted cheapest first for every dose, with discount codes shown where available.</p>"
+          }
+        },
+        "b057": {
+          "type": "question",
+          "settings": {
+            "question": "How much is Mounjaro 15mg in the UK?",
+            "answer": "<p>The 15mg dose currently costs between {min:mounjaro:15mg} and {max:mounjaro:15mg} a month, depending on the pharmacy.</p>"
+          }
+        },
+        "b058": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need a prescription for Mounjaro in the UK?",
+            "answer": "<p>Yes. Mounjaro (tirzepatide) is a prescription-only medicine. Every pharmacy in our table includes an online consultation with a UK prescriber.</p>"
+          }
+        },
+        "b059": {
+          "type": "question",
+          "settings": {
+            "question": "Is Mounjaro available on the NHS in 2026?",
+            "answer": "<p>Yes, but mainly through limited specialist NHS weight management services for patients who meet strict criteria. Many people pay privately, which is why we compare private prices.</p>"
+          }
+        },
+        "b060": {
+          "type": "question",
+          "settings": {
+            "question": "How do I get a Mounjaro prescription online?",
+            "answer": "<p>Through a GPhC-registered online pharmacy with a digital consultation. It typically takes 24 to 48 hours, and you don't need a GP referral.</p>"
+          }
+        },
+        "b061": {
+          "type": "question",
+          "settings": {
+            "question": "Which Mounjaro dose is right for me?",
+            "answer": "<p>Mounjaro comes in six doses: 2.5mg, 5mg, 7.5mg, 10mg, 12.5mg and 15mg. You usually start at 2.5mg and step up every 4 weeks under your prescriber's guidance. See our <a href=\"/blogs/comparisons-guides/mounjaro-dose-schedule-uk\">Mounjaro price by dose guide</a> for what each dose costs and when you reach it.</p>"
+          }
+        },
+        "b062": {
+          "type": "question",
+          "settings": {
+            "question": "Are there discount codes for Mounjaro?",
+            "answer": "<p>Yes. {codes:mounjaro} pharmacies currently list an offer for Mounjaro. See them all, with each code ready to copy, on our <a href=\"/pages/mounjaro-discount-codes\">Mounjaro discount codes</a> page, or use the Discount column in the table above.</p>"
+          }
+        },
+        "b063": {
+          "type": "question",
+          "settings": {
+            "question": "How much weight can I expect to lose on Mounjaro?",
+            "answer": "<p>In clinical trials, people on the 15mg dose lost up to 22.5% of their body weight on average over 72 weeks. Results vary with diet, activity and sticking to the treatment plan.</p>"
+          }
+        },
+        "b064": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro 5mg price in the UK?",
+            "answer": "<p>Today Mounjaro 5mg starts from {min:mounjaro:5mg} a month at {name:mounjaro:5mg}. The typical price is {avg:mounjaro:5mg} and the highest is {max:mounjaro:5mg}, across {n:mounjaro} GPhC-registered pharmacies.</p>"
+          }
+        },
+        "b065": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro 7.5mg price in the UK?",
+            "answer": "<p>Today Mounjaro 7.5mg starts from {min:mounjaro:7.5mg} a month at {name:mounjaro:7.5mg}. The typical price is {avg:mounjaro:7.5mg} and the highest is {max:mounjaro:7.5mg}.</p>"
+          }
+        },
+        "b066": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro 10mg price in the UK?",
+            "answer": "<p>Today Mounjaro 10mg starts from {min:mounjaro:10mg} a month at {name:mounjaro:10mg}. The typical price is {avg:mounjaro:10mg} and the highest is {max:mounjaro:10mg}.</p>"
+          }
+        },
+        "b067": {
+          "type": "question",
+          "settings": {
+            "question": "What is the cheapest Mounjaro 12.5mg price in the UK?",
+            "answer": "<p>Today Mounjaro 12.5mg starts from {min:mounjaro:12.5mg} a month at {name:mounjaro:12.5mg}. The typical price is {avg:mounjaro:12.5mg} and the highest is {max:mounjaro:12.5mg}.</p>"
+          }
+        },
+        "b100": {
+          "type": "question",
+          "settings": {
+            "question": "How much is Mounjaro a month in the UK?",
+            "answer": "<p>From {min:mounjaro:2.5mg} for 2.5mg to {min:mounjaro:15mg} for 15mg at the cheapest UK pharmacy today, for four weekly pens. The average pharmacy charges {avg:mounjaro:2.5mg} to {avg:mounjaro:15mg}.</p>"
+          }
+        },
+        "b101": {
+          "type": "question",
+          "settings": {
+            "question": "How much is Mounjaro per week?",
+            "answer": "<p>Each month's supply is four weekly pens, so the weekly cost is a quarter of the monthly price. The per-week column in the price-by-dose table above shows today's figure for every dose, from {min:mounjaro:2.5mg} a month on 2.5mg.</p>"
+          }
+        },
+        "b102": {
+          "type": "question",
+          "settings": {
+            "question": "Is cheaper Mounjaro safe?",
+            "answer": "<p>If the pharmacy is on the GPhC register, yes. It supplies the same licensed Lilly pens; the price difference is the pharmacy's margin and offers, not the medicine.</p>"
+          }
+        },
+        "b103": {
+          "type": "question",
+          "settings": {
+            "question": "Why did Mounjaro go up in price?",
+            "answer": "<p>Lilly raised its UK list price in September 2025, with the highest dose going from £122 to £330 a month. NHS prices didn't change; private prices rose.</p>"
+          }
+        },
+        "b104": {
+          "type": "question",
+          "settings": {
+            "question": "Does the Mounjaro price include the consultation?",
+            "answer": "<p>At most pharmacies, yes. A few add a consultation or delivery fee, so check the total at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b056",
+        "b100",
+        "b101",
+        "b064",
+        "b065",
+        "b066",
+        "b067",
+        "b057",
+        "b058",
+        "b059",
+        "b060",
+        "b061",
+        "b062",
+        "b102",
+        "b103",
+        "b104",
+        "b063"
+      ]
+    },
+    "also": {
+      "type": "mz-also",
+      "settings": {
+        "current": "mounjaro"
+      }
+    },
+    "disclaimer": {
+      "type": "mz-disclaimer",
+      "settings": {
+        "heading": "Important",
+        "text": "<p>MedEazy provides general information only and is not medical advice. Prescription-only medicines can only be supplied after an individual clinical assessment by a qualified healthcare professional. Always speak to your GP, pharmacist-prescriber or clinician about whether a treatment is suitable.</p>"
+      }
+    },
+    "guides": {
+      "type": "mz-related",
+      "settings": {
+        "heading": "Mounjaro guides",
+        "blog": "comparisons-guides",
+        "tags": "Mounjaro",
+        "only_tagged": false,
+        "limit": 3,
+        "button_label": "All guides",
+        "tight": true
+      }
+    },
+    "guide": {
+      "type": "mz-price-guide",
+      "settings": {
+        "treatment": "mounjaro",
+        "eyebrow": "Prices explained",
+        "heading": "How much does Mounjaro cost in the UK?",
+        "intro": "<p>Mounjaro costs from {min:mounjaro:2.5mg} a month for the 2.5mg starting dose to {min:mounjaro:15mg} a month for 15mg, at the cheapest of {n:mounjaro} GPhC-registered UK pharmacies today. At the average pharmacy you would pay {avg:mounjaro:2.5mg} to {avg:mounjaro:15mg}. Each price is for one month's supply of four weekly pens.</p>",
+        "weeks": 4,
+        "supply": "one month’s supply of four weekly pens",
+        "steps_heading": "What you'll pay in your first six months",
+        "steps": "2.5mg,5mg,7.5mg,10mg,12.5mg,15mg",
+        "steps_text": "Stepping up one dose a month from 2.5mg to 15mg",
+        "steps_period": "six months",
+        "steps_note": "Many people stay on a lower dose for longer, and your prescriber decides when you move up, so treat this as a guide rather than a quote.",
+        "cheap_heading": "Cheapest Mounjaro today, by dose"
+      },
+      "blocks": {
+        "g01": {
+          "type": "why",
+          "settings": {
+            "heading": "Why Mounjaro prices differ between pharmacies",
+            "lead": "The medicine is the same Lilly pen wherever you buy it, so the difference comes from the pharmacy's pricing:",
+            "text": "<ul><li><strong>Introductory prices.</strong> Some pharmacies discount the first month only. Check what you will pay from month two.</li><li><strong>Discount codes.</strong> {codes:mounjaro} of the {n:mounjaro} pharmacies currently offer a code, and many work on your first order only. See today's <a href=\"/pages/mounjaro-discount-codes\">Mounjaro discount codes</a>.</li><li><strong>What's included.</strong> Most prices include the online consultation, prescription and standard delivery. A few charge for these separately, or for needles and a sharps bin.</li><li><strong>Bundles.</strong> Some pharmacies charge less per month when you buy two or three months at once.</li><li><strong>Lilly's list price.</strong> In September 2025 Lilly raised the UK list price of Mounjaro, with the highest dose going from £122 to £330 a month. Today the cheapest 15mg price is {min:mounjaro:15mg}.</li></ul>"
+          }
+        },
+        "g02": {
+          "type": "text",
+          "settings": {
+            "heading": "How to pay less for Mounjaro, safely",
+            "text": "<ol><li>Compare the dose you will be on next month, not only the starting dose. Prices rise with each step.</li><li>Check the price after month one, not only the introductory offer.</li><li>Use the discount code shown next to the pharmacy.</li><li>Only buy from a pharmacy on the GPhC register. Every pharmacy on MedEazy has been checked.</li><li>You can change pharmacy to get a better price. The new pharmacy will carry out its own consultation and may ask for proof of your current prescription. See <a href=\"/pages/can-i-change-pharmacy\">Can I change pharmacy?</a></li><li>Never buy Mounjaro from social media sellers or websites that don't ask for a consultation.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "g01",
+        "g02"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "cards",
+    "custom_liquid_x6Bar7",
+    "guide",
+    "verify",
+    "info",
+    "faq",
+    "also",
+    "guides",
+    "disclaimer"
+  ]
+}
