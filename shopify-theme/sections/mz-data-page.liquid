@@ -13,7 +13,12 @@
   .mzd { --teal:#0E7C7B; --teal-d:#0B6564; --ink:#0F2A2E; --mute:#4A5E61; --mute2:#5A6D70; --line:#E2ECEA; --mist:#F2F8F7; --chip:#DDEFEC;
          font-family: Manrope, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: #fff; line-height: 1.5; }
   .mzd *, .mzd *::before, .mzd *::after { box-sizing: border-box; }
-  .mzd h1, .mzd h2, .mzd h3, .mzd p { font-family: inherit; color: inherit; margin: 0; text-transform: none; }
+  .mzd h1, .mzd h2, .mzd h3, .mzd p { font-family: inherit; color: inherit; margin: 0; text-transform: none; text-align: left; }
+  /* Dawn hides empty divs (div:empty) and adds letter-spacing; undo both here */
+  .mzd div:empty { display: block; }
+  .mzd, .mzd p, .mzd td, .mzd th, .mzd span, .mzd a, .mzd div, .mzd dt, .mzd dd, .mzd button, .mzd pre { letter-spacing: normal; }
+  .mzd table, .mzd th, .mzd td { border: 0 !important; box-shadow: none; }
+  .mzd td { border-top: 1px solid var(--line) !important; }
   .mzd a { color: var(--teal-d); }
   .mzd a:hover { color: #084847; }
   .mzd .wrap { max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
@@ -337,10 +342,6 @@
       </dl>
     </div>
   </section>
-
-  <div class="disc">
-    <div class="wrap">MedEazy is an independent price comparison service. We don't prescribe, sell or supply medicines, and nothing on this page is medical advice. Prescription-only medicines are supplied only after a clinical assessment by a qualified prescriber. Data © MedEazy, licensed CC BY 4.0.</div>
-  </div>
 </div>
 
 <script type="application/ld+json">
