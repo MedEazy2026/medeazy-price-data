@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "mz-data-page",
+      "settings": {
+        "data_base_url": "https://data.medeazy.co.uk"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
