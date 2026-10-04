@@ -1,0 +1,15 @@
+MedEazy UK weight loss medicine price data
+
+Copyright (c) MedEazy (medeazy.co.uk)
+
+These data files are licensed under the Creative Commons Attribution 4.0
+International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+You may copy, share, adapt and build on the data, including commercially,
+provided you credit the source as:
+
+    Source: MedEazy (medeazy.co.uk/data)
+
+Online, link the credit to https://medeazy.co.uk/data. Say if you changed
+the data. Prices are listed prices for information only; MedEazy does not
+prescribe, sell or supply medicines and nothing here is medical advice.
