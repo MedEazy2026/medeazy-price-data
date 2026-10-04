@@ -1,0 +1,217 @@
+{
+  "source": "MedEazy (medeazy.co.uk/data)",
+  "licence": "CC BY 4.0",
+  "last_checked_date": "2026-10-04",
+  "tracking_since": "2026-10-04",
+  "pharmacies_tracked": 74,
+  "listings": 1162,
+  "price_changes_recorded": 0,
+  "biggest_gap": {
+    "treatment": "Wegovy injection",
+    "product": "Wegovy injection",
+    "dose": "7.2mg",
+    "pharmacies": 41,
+    "lowest": 181.0,
+    "median": 279.0,
+    "highest": 599.0,
+    "gap": 418.0
+  },
+  "lowest_by_treatment": {
+    "Mounjaro": 99.0,
+    "Orlistat": 28.98,
+    "Wegovy injection": 49.0,
+    "Wegovy pill": 54.0
+  },
+  "doses": [
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "2.5mg",
+      "pharmacies": 71,
+      "lowest": 99.0,
+      "median": 149.99,
+      "highest": 219.0,
+      "gap": 120.0
+    },
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "5mg",
+      "pharmacies": 71,
+      "lowest": 128.0,
+      "median": 179.99,
+      "highest": 249.0,
+      "gap": 121.0
+    },
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "7.5mg",
+      "pharmacies": 71,
+      "lowest": 178.0,
+      "median": 239.99,
+      "highest": 299.0,
+      "gap": 121.0
+    },
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "10mg",
+      "pharmacies": 71,
+      "lowest": 198.0,
+      "median": 269.0,
+      "highest": 324.0,
+      "gap": 126.0
+    },
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "12.5mg",
+      "pharmacies": 71,
+      "lowest": 212.0,
+      "median": 288.97,
+      "highest": 344.0,
+      "gap": 132.0
+    },
+    {
+      "treatment": "Mounjaro",
+      "product": "Mounjaro",
+      "dose": "15mg",
+      "pharmacies": 71,
+      "lowest": 229.0,
+      "median": 299.99,
+      "highest": 359.0,
+      "gap": 130.0
+    },
+    {
+      "treatment": "Orlistat",
+      "product": "Alli",
+      "dose": "60mg",
+      "pharmacies": 17,
+      "lowest": 34.99,
+      "median": 45.99,
+      "highest": 99.0,
+      "gap": 64.01
+    },
+    {
+      "treatment": "Orlistat",
+      "product": "Orlistat",
+      "dose": "120mg",
+      "pharmacies": 32,
+      "lowest": 28.98,
+      "median": 36.99,
+      "highest": 89.0,
+      "gap": 60.02
+    },
+    {
+      "treatment": "Orlistat",
+      "product": "Xenical",
+      "dose": "120mg",
+      "pharmacies": 27,
+      "lowest": 39.69,
+      "median": 49.99,
+      "highest": 68.99,
+      "gap": 29.3
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "0.25mg",
+      "pharmacies": 73,
+      "lowest": 49.0,
+      "median": 99.49,
+      "highest": 169.95,
+      "gap": 120.95
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "0.5mg",
+      "pharmacies": 73,
+      "lowest": 68.0,
+      "median": 119.95,
+      "highest": 169.95,
+      "gap": 101.95
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "1mg",
+      "pharmacies": 73,
+      "lowest": 75.0,
+      "median": 129.99,
+      "highest": 189.0,
+      "gap": 114.0
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "1.7mg",
+      "pharmacies": 73,
+      "lowest": 101.0,
+      "median": 169.99,
+      "highest": 249.95,
+      "gap": 148.95
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "2.4mg",
+      "pharmacies": 73,
+      "lowest": 120.0,
+      "median": 199.0,
+      "highest": 339.95,
+      "gap": 219.95
+    },
+    {
+      "treatment": "Wegovy injection",
+      "product": "Wegovy injection",
+      "dose": "7.2mg",
+      "pharmacies": 41,
+      "lowest": 181.0,
+      "median": 279.0,
+      "highest": 599.0,
+      "gap": 418.0
+    },
+    {
+      "treatment": "Wegovy pill",
+      "product": "Wegovy pill",
+      "dose": "1.5mg",
+      "pharmacies": 65,
+      "lowest": 54.0,
+      "median": 99.99,
+      "highest": 154.0,
+      "gap": 100.0
+    },
+    {
+      "treatment": "Wegovy pill",
+      "product": "Wegovy pill",
+      "dose": "4mg",
+      "pharmacies": 65,
+      "lowest": 75.0,
+      "median": 114.99,
+      "highest": 179.0,
+      "gap": 104.0
+    },
+    {
+      "treatment": "Wegovy pill",
+      "product": "Wegovy pill",
+      "dose": "9mg",
+      "pharmacies": 64,
+      "lowest": 88.0,
+      "median": 135.0,
+      "highest": 219.0,
+      "gap": 131.0
+    },
+    {
+      "treatment": "Wegovy pill",
+      "product": "Wegovy pill",
+      "dose": "25mg",
+      "pharmacies": 60,
+      "lowest": 125.0,
+      "median": 189.5,
+      "highest": 269.0,
+      "gap": 144.0
+    }
+  ]
+}

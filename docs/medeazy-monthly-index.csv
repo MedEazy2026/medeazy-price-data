@@ -1,0 +1,20 @@
+month,complete_month,treatment,product,dose,pharmacies_listed,lowest_price_gbp,median_price_gbp,highest_price_gbp,price_gap_gbp,avg_daily_median_gbp,days_tracked
+2026-10,no,Mounjaro,Mounjaro,2.5mg,71,99.00,149.99,219.00,120.00,149.99,1
+2026-10,no,Mounjaro,Mounjaro,5mg,71,128.00,179.99,249.00,121.00,179.99,1
+2026-10,no,Mounjaro,Mounjaro,7.5mg,71,178.00,239.99,299.00,121.00,239.99,1
+2026-10,no,Mounjaro,Mounjaro,10mg,71,198.00,269.00,324.00,126.00,269.00,1
+2026-10,no,Mounjaro,Mounjaro,12.5mg,71,212.00,288.97,344.00,132.00,288.97,1
+2026-10,no,Mounjaro,Mounjaro,15mg,71,229.00,299.99,359.00,130.00,299.99,1
+2026-10,no,Orlistat,Alli,60mg,17,34.99,45.99,99.00,64.01,45.99,1
+2026-10,no,Orlistat,Orlistat,120mg,32,28.98,36.99,89.00,60.02,36.99,1
+2026-10,no,Orlistat,Xenical,120mg,27,39.69,49.99,68.99,29.30,49.99,1
+2026-10,no,Wegovy injection,Wegovy injection,0.25mg,73,49.00,99.49,169.95,120.95,99.49,1
+2026-10,no,Wegovy injection,Wegovy injection,0.5mg,73,68.00,119.95,169.95,101.95,119.95,1
+2026-10,no,Wegovy injection,Wegovy injection,1mg,73,75.00,129.99,189.00,114.00,129.99,1
+2026-10,no,Wegovy injection,Wegovy injection,1.7mg,73,101.00,169.99,249.95,148.95,169.99,1
+2026-10,no,Wegovy injection,Wegovy injection,2.4mg,73,120.00,199.00,339.95,219.95,199.00,1
+2026-10,no,Wegovy injection,Wegovy injection,7.2mg,41,181.00,279.00,599.00,418.00,279.00,1
+2026-10,no,Wegovy pill,Wegovy pill,1.5mg,65,54.00,99.99,154.00,100.00,99.99,1
+2026-10,no,Wegovy pill,Wegovy pill,4mg,65,75.00,114.99,179.00,104.00,114.99,1
+2026-10,no,Wegovy pill,Wegovy pill,9mg,64,88.00,135.00,219.00,131.00,135.00,1
+2026-10,no,Wegovy pill,Wegovy pill,25mg,60,125.00,189.50,269.00,144.00,189.50,1
