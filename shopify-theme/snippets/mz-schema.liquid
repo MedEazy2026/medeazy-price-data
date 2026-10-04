@@ -1,0 +1,82 @@
+{%- comment -%}
+  Structured data for treatment price pages, built from the daily price summary (shop metafield medeazy.prices).
+  Prices, pharmacy counts and dates always match the comparison table, so there is nothing to update by hand.
+  Rendered in layout/theme.liquid on page templates.
+  The medicine and its price range are one item (Product + Drug), so Google sees the medicine with its offers.
+  Pages without prices yet (e.g. "coming soon") get no Product item, because Google rejects a Product with no offers.
+{%- endcomment -%}
+{%- assign mz_db = shop.metafields.medeazy.prices.value -%}
+{%- if mz_db and request.page_type == 'page' and page -%}
+  {%- assign mz_t = nil -%}
+  {%- assign mz_key = '' -%}
+  {%- for k in mz_db.order -%}{%- if mz_db.t[k].handle == page.handle -%}{%- assign mz_t = mz_db.t[k] -%}{%- assign mz_key = k -%}{%- endif -%}{%- endfor -%}
+  {%- if mz_t -%}
+    {%- assign mz_mod = page.metafields.custom.last_updated.value | date: '%Y-%m-%d' | default: mz_db.updated -%}
+    {%- assign mz_url = shop.url | append: page.url -%}
+    {%- assign mz_has = true -%}
+    {%- if mz_t.soon or mz_t.lo_v == nil -%}{%- assign mz_has = false -%}{%- endif -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"MedicalWebPage","@id":{{ mz_url | append: '#webpage' | json }},"url":{{ mz_url | json }},"name":{{ page.title | json }},
+   "description":{{ page.metafields.global.description_tag | default: page_description | strip | json }},
+   "inLanguage":"en-GB","dateModified":{{ mz_mod | json }},"lastReviewed":{{ mz_mod | json }},
+   "audience":{"@type":"PatientsAudience","geographicArea":{"@type":"Country","name":"United Kingdom"}},
+   {%- if mz_has -%}
+   "about":{"@id":{{ mz_url | append: '#prices' | json }}},
+   {%- else -%}
+   "about":{"@type":"MedicalEntity","name":{{ mz_t.full | append: ' (' | append: mz_t.ingr | append: ')' | json }}},
+   {%- endif -%}
+   "isPartOf":{"@id":{{ shop.url | append: '/#website' | json }}},
+   "publisher":{"@id":{{ shop.url | append: '/#organization' | json }}}
+   {%- if mz_has -%},"mainEntity":{"@id":{{ mz_url | append: '#prices' | json }}}{%- endif -%}}
+  {%- if mz_has -%}
+  ,{"@type":["Product","Drug"],"@id":{{ mz_url | append: '#prices' | json }},"name":{{ mz_t.full | append: ' UK price comparison' | json }},
+   "description":{{ 'Prices for ' | append: mz_t.full | append: ' (' | append: mz_t.ingr | append: ') from ' | append: mz_t.n | append: ' GPhC-registered UK online pharmacies, compared by dose.' | json }},
+   "category":"Prescription weight loss treatment",
+   "activeIngredient":{{ mz_t.ingr | json }},
+   {%- unless mz_key == 'orlistat' -%}
+   "prescriptionStatus":"https://schema.org/PrescriptionOnly",
+   "brand":{"@type":"Brand","name":{{ mz_t.name | split: ' ' | first | json }}},
+   {%- endunless -%}
+   "url":{{ mz_url | json }},
+   "offers":{"@type":"AggregateOffer","priceCurrency":"GBP","lowPrice":{{ mz_t.lo_v | json }},"highPrice":{{ mz_t.hi_v | json }},"offerCount":{{ mz_t.n | plus: 0 }},"availability":"https://schema.org/InStock","areaServed":"GB"}}
+  {%- endif -%}
+  {%- unless mz_t.soon -%}
+  ,{"@type":"Dataset","name":{{ mz_t.full | append: ' UK pharmacy prices by dose' | json }},
+   "description":{{ 'Lowest, highest and average private prices for each ' | append: mz_t.full | append: ' dose across GPhC-registered UK online pharmacies.' | json }},
+   "url":{{ mz_url | json }},"dateModified":{{ mz_db.updated | json }},"isAccessibleForFree":true,
+   "license":"https://creativecommons.org/licenses/by/4.0/",
+   "creator":{"@id":{{ shop.url | append: '/#organization' | json }}},
+   "variableMeasured":[{%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{"@type":"PropertyValue","name":{{ mz_t.full | append: ' ' | append: col | append: ' lowest price' | json }},"unitText":"GBP"{%- if mz_t.c[mz_ck].min_v -%},"value":{{ mz_t.c[mz_ck].min_v | json }}{%- endif -%}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]}
+  {%- endunless -%}
+]}
+</script>
+  {%- endif -%}
+{%- endif -%}
+{%- comment -%} Dose price guides (Mounjaro, Wegovy, Wegovy pill): live Product offer for that dose {%- endcomment -%}
+{%- if mz_db and request.page_type == 'article' and article -%}
+  {%- assign mz_h = article.handle | split: '/' | last -%}
+  {%- if mz_h contains 'mg-price-uk' -%}
+    {%- assign mz_rest = mz_h | remove: '-price-uk' -%}
+    {%- assign mz_k = '' -%}
+    {%- if mz_rest contains 'wegovy-pill-' -%}{%- assign mz_k = 'wegovy-pill' -%}{%- assign mz_dose = mz_rest | remove_first: 'wegovy-pill-' -%}
+    {%- elsif mz_rest contains 'wegovy-' -%}{%- assign mz_k = 'wegovy' -%}{%- assign mz_dose = mz_rest | remove_first: 'wegovy-' -%}
+    {%- elsif mz_rest contains 'mounjaro-' -%}{%- assign mz_k = 'mounjaro' -%}{%- assign mz_dose = mz_rest | remove_first: 'mounjaro-' -%}
+    {%- endif -%}
+    {%- if mz_k != '' -%}
+      {%- assign mz_dose = mz_dose | replace: '-', '.' -%}
+      {%- assign mz_t = mz_db.t[mz_k] -%}
+      {%- assign mz_c = mz_t.c[mz_dose] -%}
+      {%- if mz_c and mz_c.min_v -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product",
+ "name":{{ mz_t.full | append: ' ' | append: mz_c.label | append: ' (' | append: mz_t.ingr | append: ') UK price comparison' | json }},
+ "description":{{ 'Monthly private prices for ' | append: mz_t.full | append: ' ' | append: mz_c.label | append: ' from ' | append: mz_c.n | append: ' GPhC-registered UK online pharmacies.' | json }},
+ "brand":{"@type":"Brand","name":{{ mz_t.name | split: ' ' | first | json }}},
+ "url":{{ shop.url | append: article.url | json }},
+ "offers":{"@type":"AggregateOffer","priceCurrency":"GBP","lowPrice":{{ mz_c.min_v | json }},"highPrice":{{ mz_c.max_v | json }},"offerCount":{{ mz_c.n | plus: 0 }},"availability":"https://schema.org/InStock","areaServed":"GB","url":{{ shop.url | append: '/pages/' | append: mz_t.handle | json }}}}
+</script>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
