@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "main": {
+      "type": "mz-article",
+      "settings": {
+        "show_crumbs": true,
+        "category_override": "",
+        "show_excerpt": true,
+        "show_image": true,
+        "show_author": true,
+        "show_updated": true,
+        "tokens": false,
+        "show_tags": true,
+        "disclaimer": "<p>This article is general information only. It isn't medical advice or advertising for a prescription-only medicine. Always speak to your GP or a qualified prescriber about whether a treatment is right for you.</p>",
+        "show_aside": true,
+        "show_toc": true,
+        "toc_heading": "On this page",
+        "show_prices": true,
+        "price_heading": "Today's lowest prices",
+        "fallback": "mounjaro, wegovy",
+        "max_treatments": 2,
+        "show_author_card": true,
+        "author_name": "MedEazy Team",
+        "author_bio": "Written by the MedEazy editorial team. We compare prices from GPhC-registered UK pharmacies and check our figures daily.",
+        "cta_heading": "Compare today's prices",
+        "cta_text": "Find the cheapest GPhC-verified UK pharmacy for your treatment and dose. Prices checked daily.",
+        "cta_label": "Compare prices",
+        "cta_link": "shopify://pages/mounjaro-price-comparison"
+      }
+    },
+    "links": {
+      "type": "mz-price-links",
+      "settings": {
+        "heading": "Compare today's prices",
+        "show_codes": true
+      }
+    },
+    "related": {
+      "type": "mz-related",
+      "settings": {
+        "heading": "More guides",
+        "limit": 3,
+        "button_label": "All guides",
+        "tight": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "links",
+    "related"
+  ]
+}
