@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mounjaro prices by dose – MedEazy</title>
+<link rel="canonical" href="https://medeazy.co.uk/pages/data">
+<style>
+  html, body { margin: 0; background: #fff; }
+  body { font-family: Manrope, system-ui, -apple-system, "Segoe UI", sans-serif; color: #0F2A2E; }
+  .w { padding: 20px 20px 14px; }
+  h1 { margin: 0 0 4px; font-size: 18px; letter-spacing: -0.01em; }
+  .sub { margin: 0 0 18px; font-size: 13px; color: #4A5E61; }
+  .row { display: grid; grid-template-columns: 58px minmax(0, 1fr) 76px; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .dose { font-weight: 700; font-size: 14px; }
+  .track { position: relative; height: 30px; background: #F2F8F7; border-radius: 8px; }
+  .bar { position: absolute; top: 9px; height: 12px; border-radius: 6px; background: #0E7C7B; opacity: .85; }
+  .lab { position: absolute; top: 6px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .gap { font-size: 13px; font-weight: 800; color: #9A4A0B; text-align: right; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: #5A6D70; }
+  .foot a { color: #0B6564; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="w">
+  <h1>Mounjaro: lowest to highest price by dose</h1>
+  <p class="sub" id="sub">Monthly supply across UK GPhC-registered online pharmacies</p>
+  <div id="rows"></div>
+  <div class="foot">
+    <span id="upd"></span>
+    <a href="https://medeazy.co.uk/pages/data" target="_blank" rel="noopener">Source: MedEazy (medeazy.co.uk/data)</a>
+  </div>
+</div>
+<script>
+(function () {
+  var rows = document.getElementById('rows');
+  function money(n) { return '£' + (Math.round(n * 100) / 100).toString().replace(/\.(\d)$/, '.$10'); }
+  fetch('../summary.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (s) {
+    var doses = (s.doses || []).filter(function (d) { return d.treatment === 'Mounjaro'; });
+    var max = Math.ceil(Math.max.apply(null, doses.map(function (d) { return d.highest; })) / 100) * 100 || 400;
+    rows.innerHTML = '';
+    doses.forEach(function (d) {
+      var l = d.lowest / max * 100, h = d.highest / max * 100;
+      var row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML =
+        '<div class="dose"></div>' +
+        '<div class="track"><div class="bar" style="left:' + l + '%;width:' + (h - l) + '%"></div>' +
+        '<span class="lab" style="right:' + (100 - l + 1) + '%"></span>' +
+        '<span class="lab" style="left:' + (h + 1) + '%"></span></div>' +
+        '<div class="gap"></div>';
+      row.children[0].textContent = d.dose;
+      row.querySelectorAll('.lab')[0].textContent = money(d.lowest);
+      row.querySelectorAll('.lab')[1].textContent = money(d.highest);
+      row.children[2].textContent = money(d.gap) + ' gap';
+      rows.appendChild(row);
+    });
+    var n = doses.length ? Math.max.apply(null, doses.map(function (d) { return d.pharmacies; })) : '';
+    document.getElementById('sub').textContent = 'Monthly supply across ' + n + ' UK GPhC-registered online pharmacies';
+    document.getElementById('upd').textContent = 'Updated ' + new Date(s.last_checked_date + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  }).catch(function () {
+    rows.textContent = 'Live data is temporarily unavailable. See medeazy.co.uk/data.';
+  });
+})();
+</script>
+</body>
+</html>
