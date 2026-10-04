@@ -1,0 +1,278 @@
+{%- comment -%}
+  MedEazy price table: rendered on the server, so the prices are in the page
+  HTML that Google reads. Dose tabs, filters and "show all" work with CSS only.
+  A few lines of optional script add copy buttons and #dose links.
+
+  Data: the hourly price job reads assets/pricing-<treatment>.json from the
+  live theme and saves a sorted copy to the shop metafield
+  medeazy.price_table_<treatment>. Keep editing the pricing files as normal.
+{%- endcomment -%}
+{%- liquid
+  assign slug = section.settings.treatment | default: 'mounjaro'
+  assign mf_key = 'price_table_' | append: slug | replace: '-', '_'
+  assign t = shop.metafields.medeazy[mf_key].value
+  assign sid = section.id
+  assign top_n = section.settings.top_n | default: 10
+-%}
+{%- if t and t.doses.size > 0 -%}
+<section class="mzp" id="mzp-{{ sid }}" aria-labelledby="mzp-h-{{ sid }}">
+<style>
+  .mzp { --teal:#0E7C7B; --teal-d:#0B6564; --ink:#0F2A2E; --mute:#4A5E61; --line:#E2ECEA; --mist:#F2F8F7; --chip:#DDEFEC;
+         --amber:#9A4A0B; --amber-bg:#FDF1E4; --good:#1B7F4B; --good-bg:#E5F4EC; --rd: table-row;
+         font-family: Manrope, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); line-height: 1.45;
+         max-width: 1080px; margin: 0 auto; padding: 32px 16px 40px; }
+  .mzp *, .mzp *::before, .mzp *::after { box-sizing: border-box; letter-spacing: normal; }
+  .mzp div:empty { display: block; }
+  .mzp h2, .mzp p { margin: 0; text-align: left; text-transform: none; font-family: inherit; color: inherit; }
+  .mzp table, .mzp th, .mzp td { border: 0 !important; box-shadow: none; background: none; }
+  .mzp .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .mzp-head { display: grid; gap: 6px; margin-bottom: 20px; }
+  .mzp-eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em !important; color: var(--teal-d); }
+  .mzp h2 { font-size: clamp(24px, 3.4vw, 32px); line-height: 1.15; font-weight: 800; text-wrap: balance; }
+  .mzp-sub { color: var(--mute); font-size: 15px; max-width: 62ch; }
+
+  /* dose picker */
+  .mzp-pick { border: 0; padding: 0; margin: 0 0 14px; min-width: 0; }
+  .mzp-pick legend { font-size: 13px; font-weight: 700; color: var(--mute); margin-bottom: 8px; padding: 0; }
+  .mzp-doses { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: thin; }
+  .mzp-dose { flex: 0 0 auto; display: grid; gap: 1px; min-width: 92px; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 12px;
+              background: #fff; cursor: pointer; transition: border-color .15s, background .15s; }
+  .mzp-dose:hover { border-color: var(--teal); }
+  .mzp-dose b { font-size: 16px; font-weight: 800; }
+  .mzp-dose span { font-size: 12px; color: var(--mute); font-variant-numeric: tabular-nums; }
+
+  /* filters */
+  .mzp-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .mzp-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 14px; border-radius: 999px; border: 1.5px solid var(--line);
+              font-size: 14px; font-weight: 600; background: #fff; cursor: pointer; user-select: none; }
+  .mzp-chip::before { content: ""; width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid #9FB5B3; background: #fff; }
+  .mzp-chip:hover { border-color: var(--teal); }
+
+  /* summary strip */
+  .mzp-panel { display: none; }
+  .mzp-sum { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 14px; }
+  .mzp-sum div { background: var(--mist); padding: 12px 14px; display: grid; gap: 2px; }
+  .mzp-sum dt { font-size: 12px; color: var(--mute); font-weight: 600; }
+  .mzp-sum dd { margin: 0; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mzp-sum .lo dd { color: var(--good); }
+  .mzp-sum .gap dd { color: var(--amber); }
+  .mzp-sum small { font-size: 12px; font-weight: 600; color: var(--mute); }
+
+  /* table */
+  .mzp table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .mzp thead th { font-size: 12px; font-weight: 700; color: var(--mute); text-align: left; padding: 0 10px 8px; white-space: nowrap; border-bottom: 1.5px solid var(--ink) !important; }
+  .mzp tbody tr { display: var(--rd); }
+  .mzp tbody td { padding: 12px 10px; vertical-align: middle; border-bottom: 1px solid var(--line) !important; }
+  .mzp tbody tr:hover td { background: #FAFDFC; }
+  .mzp tbody tr.first td { background: var(--good-bg); }
+  .mzp .c-rank { width: 36px; color: var(--mute); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .mzp .c-name strong { display: block; font-size: 15px; font-weight: 700; }
+  .mzp .c-name a.reg { font-size: 12px; color: var(--mute); text-decoration: none; }
+  .mzp .c-name a.reg:hover { color: var(--teal-d); text-decoration: underline; }
+  .mzp .c-name a.reg::before { content: "✓ "; color: var(--good); font-weight: 800; }
+  .mzp .pill { display: block; width: fit-content; margin: 3px 0 2px; padding: 1px 8px; border-radius: 999px; background: var(--good); color: #fff; font-size: 11px; font-weight: 700; vertical-align: 2px; }
+  .mzp .c-price { white-space: nowrap; }
+  .mzp .c-price b { display: block; font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mzp .c-price span { font-size: 12px; color: var(--mute); font-variant-numeric: tabular-nums; }
+  .mzp .c-cmp { width: 22%; min-width: 130px; }
+  .mzp .bar { height: 6px; border-radius: 3px; background: var(--line); position: relative; margin-bottom: 5px; }
+  .mzp .bar i { position: absolute; inset: 0 auto 0 0; border-radius: 3px; background: linear-gradient(90deg, var(--teal), #D88A3D); }
+  .mzp .c-cmp span { font-size: 12px; font-weight: 700; color: var(--amber); font-variant-numeric: tabular-nums; }
+  .mzp tr.first .c-cmp span { color: var(--good); }
+  .mzp .c-rate a { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .mzp .c-rate a::before { content: "★"; color: #00A86B; font-size: 15px; }
+  .mzp .c-rate .low a::before { color: #C9A227; }
+  .mzp .c-rate .none { color: #9FB5B3; }
+  .mzp .code { display: inline-block; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; font-weight: 600; padding: 3px 8px;
+               border: 1.5px dashed var(--teal); border-radius: 6px; background: #fff; color: var(--teal-d); user-select: all; }
+  .mzp .c-code .code + .code { margin-left: 4px; }
+  .mzp .offer { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--amber-bg); color: var(--amber); }
+  .mzp .c-code small { display: block; font-size: 12px; color: var(--mute); margin-top: 3px; max-width: 24ch; }
+  .mzp .c-code .none { color: #9FB5B3; }
+  .mzp .copy { margin-left: 4px; font: inherit; font-size: 12px; font-weight: 700; color: var(--teal-d); background: none; border: 0; padding: 4px; cursor: pointer; }
+  .mzp .c-act { text-align: right; }
+  .mzp .go { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 16px; border-radius: 10px; background: var(--ink);
+             color: #fff !important; font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; }
+  .mzp .go:hover { background: var(--teal-d); }
+  .mzp tr.first .go { background: var(--good); }
+
+  .mzp-more { display: flex; justify-content: center; margin-top: 14px; }
+  .mzp-more label { cursor: pointer; font-weight: 700; color: var(--teal-d); padding: 10px 18px; border: 1.5px solid var(--line); border-radius: 999px; }
+  .mzp-more label:hover { border-color: var(--teal); }
+  .mzp-more .less { display: none; }
+  .mzp-empty { display: none; padding: 24px; text-align: center; color: var(--mute); background: var(--mist); border-radius: 12px; margin-top: 10px; }
+  .mzp-foot { margin-top: 18px; font-size: 13px; color: var(--mute); display: grid; gap: 4px; }
+  .mzp-foot a { color: var(--teal-d); font-weight: 700; }
+
+  /* state: top N, filters, show all */
+  #mzp-{{ sid }} tbody tr:nth-child(n+{{ top_n | plus: 1 }}) { display: none; }
+  #all-{{ sid }}:checked ~ .mzp-body tbody tr,
+  #code-{{ sid }}:checked ~ .mzp-body tbody tr,
+  #tp-{{ sid }}:checked ~ .mzp-body tbody tr { display: var(--rd); }
+  #code-{{ sid }}:checked ~ .mzp-body tbody tr.nocode,
+  #tp-{{ sid }}:checked ~ .mzp-body tbody tr.tplo { display: none; }
+  #all-{{ sid }}:checked ~ .mzp-body .mzp-more .more { display: none; }
+  #all-{{ sid }}:checked ~ .mzp-body .mzp-more .less { display: inline; }
+  #code-{{ sid }}:checked ~ .mzp-body .mzp-more,
+  #tp-{{ sid }}:checked ~ .mzp-body .mzp-more { display: none; }
+  #code-{{ sid }}:checked ~ .mzp-body .mzp-panel:not(:has(tr.hascode)) .mzp-empty,
+  #tp-{{ sid }}:checked ~ .mzp-body .mzp-panel:not(:has(tr.tphi)) .mzp-empty { display: block; }
+  #code-{{ sid }}:checked ~ .mzp-body label[for="code-{{ sid }}"],
+  #tp-{{ sid }}:checked ~ .mzp-body label[for="tp-{{ sid }}"] { border-color: var(--teal); background: var(--chip); }
+  #code-{{ sid }}:checked ~ .mzp-body label[for="code-{{ sid }}"]::before,
+  #tp-{{ sid }}:checked ~ .mzp-body label[for="tp-{{ sid }}"]::before { background: var(--teal); border-color: var(--teal); box-shadow: inset 0 0 0 3px #fff; }
+  #code-{{ sid }}:focus-visible ~ .mzp-body label[for="code-{{ sid }}"],
+  #tp-{{ sid }}:focus-visible ~ .mzp-body label[for="tp-{{ sid }}"],
+  #all-{{ sid }}:focus-visible ~ .mzp-body label[for="all-{{ sid }}"] { outline: 3px solid var(--teal); outline-offset: 2px; }
+  {%- for d in t.doses %}
+  #r-{{ d.id }}-{{ sid }}:checked ~ .mzp-body #p-{{ d.id }}-{{ sid }} { display: block; }
+  #r-{{ d.id }}-{{ sid }}:checked ~ .mzp-body label[for="r-{{ d.id }}-{{ sid }}"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  #r-{{ d.id }}-{{ sid }}:checked ~ .mzp-body label[for="r-{{ d.id }}-{{ sid }}"] span { color: #BFD9D6; }
+  #r-{{ d.id }}-{{ sid }}:focus-visible ~ .mzp-body label[for="r-{{ d.id }}-{{ sid }}"] { outline: 3px solid var(--teal); outline-offset: 2px; }
+  {%- endfor %}
+
+  /* phones: each row becomes a card */
+  @media (max-width: 760px) {
+    .mzp { --rd: grid; padding-top: 24px; }
+    .mzp-sum { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mzp thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .mzp table, .mzp tbody { display: block; }
+    .mzp tbody tr { grid-template-columns: 26px minmax(0, 1fr) auto; grid-template-areas: "rank name price" ". cmp cmp" ". rate code" ". act act";
+                    column-gap: 10px; row-gap: 8px; padding: 14px 4px; border-bottom: 1px solid var(--line); }
+    .mzp tbody tr.first { background: var(--good-bg); border-radius: 12px; padding-inline: 10px; }
+    .mzp tbody td { padding: 0; border: 0 !important; background: none !important; width: auto; min-width: 0; }
+    .mzp .c-rank { grid-area: rank; padding-top: 2px; }
+    .mzp .c-name { grid-area: name; }
+    .mzp .c-price { grid-area: price; text-align: right; }
+    .mzp .c-cmp { grid-area: cmp; }
+    .mzp .c-rate { grid-area: rate; }
+    .mzp .c-code { grid-area: code; text-align: right; }
+    .mzp .c-code .code + .code { margin-left: 4px; }
+  .mzp .offer { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: var(--amber-bg); color: var(--amber); }
+  .mzp .c-code small { margin-left: auto; }
+    .mzp .c-act { grid-area: act; }
+    .mzp .go { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .mzp * { transition: none !important; } }
+</style>
+
+{%- for d in t.doses %}
+<input class="vh" type="radio" name="dose-{{ sid }}" id="r-{{ d.id }}-{{ sid }}" value="{{ d.id }}"{% if forloop.first %} checked{% endif %}>
+{%- endfor %}
+<input class="vh" type="checkbox" id="code-{{ sid }}">
+<input class="vh" type="checkbox" id="tp-{{ sid }}">
+<input class="vh" type="checkbox" id="all-{{ sid }}">
+
+<div class="mzp-body">
+  <header class="mzp-head">
+    <p class="mzp-eyebrow">{{ t.name }}{% if t.ingredient != blank %} ({{ t.ingredient }}){% endif %} · {{ t.form }}</p>
+    <h2 id="mzp-h-{{ sid }}">{{ section.settings.heading | default: 'prices by dose' | prepend: ' ' | prepend: t.name }}</h2>
+    <p class="mzp-sub">Prices {{ t.unit }} at {{ t.pharmacies }} UK online pharmacies, all registered with the GPhC. Cheapest first. Checked {{ t.updated | date: '%-d %B %Y' }}.</p>
+  </header>
+
+  <fieldset class="mzp-pick">
+    <legend>Choose your dose</legend>
+    <div class="mzp-doses">
+      {%- for d in t.doses %}
+      <label class="mzp-dose" for="r-{{ d.id }}-{{ sid }}"><b>{{ d.label }}</b><span>from {{ d.low }}</span></label>
+      {%- endfor %}
+    </div>
+  </fieldset>
+
+  <div class="mzp-filters" role="group" aria-label="Filter pharmacies">
+    <label class="mzp-chip" for="code-{{ sid }}">Has a discount or offer</label>
+    <label class="mzp-chip" for="tp-{{ sid }}">Trustpilot 4.5 or higher</label>
+  </div>
+
+  {%- for d in t.doses %}
+  <div class="mzp-panel" id="p-{{ d.id }}-{{ sid }}" data-dose="{{ d.id }}">
+    <dl class="mzp-sum">
+      <div class="lo"><dt>Cheapest</dt><dd>{{ d.low }}</dd></div>
+      <div><dt>Typical (median)</dt><dd>{{ d.median }}</dd></div>
+      <div><dt>Most expensive</dt><dd>{{ d.high }}</dd></div>
+      <div class="gap"><dt>Price gap</dt><dd>{{ d.gap }}{% if d.gap_year != blank %} <small>{{ d.gap_year }} a year</small>{% endif %}</dd></div>
+    </dl>
+    <table>
+      <caption class="vh">{{ t.name }} {{ d.label }} prices at {{ d.count }} UK online pharmacies, cheapest first</caption>
+      <thead><tr><th scope="col">#</th><th scope="col">Pharmacy</th><th scope="col">Price</th><th scope="col">Compared with cheapest</th><th scope="col">Trustpilot</th><th scope="col">Discount code</th><th scope="col"><span class="vh">Link</span></th></tr></thead>
+      <tbody>
+      {%- for o in d.offers %}
+        <tr class="{% if forloop.first %}first {% endif %}{% if o.code != blank %}hascode{% else %}nocode{% endif %} {% if o.rating_band == 'high' %}tphi{% else %}tplo{% endif %}">
+          <td class="c-rank">{{ o.rank }}</td>
+          <td class="c-name"><strong>{{ o.pharmacy | escape }}{% if forloop.first %}<span class="pill">Lowest price</span>{% endif %}</strong>
+            {%- if o.gphc != blank %}<a class="reg" href="{{ o.gphc_url }}" target="_blank" rel="noopener">GPhC {{ o.gphc }}</a>{% endif %}</td>
+          <td class="c-price"><b>{{ o.price }}</b>{% if o.per_week != blank %}<span>{{ o.per_week }} a week</span>{% endif %}</td>
+          <td class="c-cmp"><div class="bar" aria-hidden="true"><i style="width:{{ o.bar }}%"></i></div><span>{% if forloop.first %}Cheapest{% else %}{{ o.above_low }} more{% endif %}</span></td>
+          <td class="c-rate">{% if o.rating != blank %}<span class="{{ o.rating_band }}"><a href="{{ o.rating_url }}" target="_blank" rel="noopener nofollow" aria-label="Trustpilot {{ o.rating }} out of 5">{{ o.rating }}</a></span>{% else %}<span class="none">No rating</span>{% endif %}</td>
+          <td class="c-code">{% if o.codes.size > 0 %}{% for c in o.codes %}<span class="code">{{ c | escape }}</span>{% endfor %}{% elsif o.code != blank %}<span class="offer">Offer through our link</span>{% endif %}{% if o.code != blank %}{% if o.code_detail != blank %}<small>{{ o.code_detail | escape }}</small>{% endif %}{% else %}<span class="none">No code</span>{% endif %}</td>
+          <td class="c-act"><a class="go" href="{{ o.url }}" target="_blank" rel="nofollow sponsored noopener">Visit pharmacy<span class="vh"> {{ o.pharmacy | escape }}</span></a></td>
+        </tr>
+      {%- endfor %}
+      </tbody>
+    </table>
+    <p class="mzp-empty">No pharmacy matches the filters you picked for {{ d.label }}. Clear a filter to see more.</p>
+    {%- if d.count > top_n %}
+    <div class="mzp-more"><label for="all-{{ sid }}"><span class="more">Show all {{ d.count }} pharmacies</span><span class="less">Show top {{ top_n }} only</span></label></div>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+
+  <div class="mzp-foot">
+    <p>Prices are before discount codes and may not include delivery. Always check the price on the pharmacy's site before you order. Some links earn us a commission, which never affects the order.</p>
+    <p>Full data, history and methodology: <a href="/pages/data">MedEazy price data</a>.</p>
+  </div>
+</div>
+
+<script type="application/ld+json">
+[{%- for d in t.doses %}{
+  "@context": "https://schema.org", "@type": "Product",
+  "name": {{ t.name | append: ' ' | append: d.label | json }},
+  "description": {{ t.name | append: ' ' | append: d.label | append: ', ' | append: t.unit | append: ', compared across UK online pharmacies' | json }},
+  "offers": { "@type": "AggregateOffer", "priceCurrency": "GBP", "lowPrice": "{{ d.low_num }}", "highPrice": "{{ d.high_num }}", "offerCount": {{ d.count }} }
+}{% unless forloop.last %},{% endunless %}{%- endfor %}]
+</script>
+
+<script>
+(function () {
+  var root = document.getElementById('mzp-{{ sid }}');
+  if (!root || !navigator.clipboard) return;
+  root.querySelectorAll('.code').forEach(function (el) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'copy'; b.textContent = 'Copy';
+    b.setAttribute('aria-label', 'Copy code ' + el.textContent);
+    b.addEventListener('click', function () {
+      navigator.clipboard.writeText(el.textContent).then(function () {
+        b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1600);
+      }, function () {});
+    });
+    el.after(b);
+  });
+  var h = location.hash.slice(1), r = h && document.getElementById('r-' + h + '-{{ sid }}');
+  if (r) r.checked = true;
+  root.addEventListener('change', function (e) {
+    if (e.target.name === 'dose-{{ sid }}') history.replaceState(null, '', '#' + e.target.value);
+  });
+})();
+</script>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Price table",
+  "tag": "div",
+  "settings": [
+    { "type": "select", "id": "treatment", "label": "Treatment", "default": "mounjaro",
+      "options": [
+        { "value": "mounjaro", "label": "Mounjaro" },
+        { "value": "wegovy", "label": "Wegovy" },
+        { "value": "wegovy-pill", "label": "Wegovy pill" },
+        { "value": "orlistat", "label": "Orlistat" }
+      ] },
+    { "type": "text", "id": "heading", "label": "Heading after the treatment name", "default": "prices by dose" },
+    { "type": "range", "id": "top_n", "label": "Pharmacies shown before 'Show all'", "min": 5, "max": 20, "step": 1, "default": 10 }
+  ],
+  "presets": [ { "name": "Price table" } ]
+}
+{% endschema %}
