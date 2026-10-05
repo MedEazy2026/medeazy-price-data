@@ -52,6 +52,18 @@
   .mzg .mzg-total b { display: block; font-size: 26px; line-height: 1.2; }
   .mzg .mzg-total span { font-size: 14px; color: var(--mz-muted, #4A5E61); }
   .mzg .mzg-total.is-lo { border-color: currentColor; }
+  @media (max-width: 700px) {
+    .mzg .mzg-tw { overflow: visible; border: 0; border-radius: 0; }
+    .mzg table.mzg-rt, .mzg .mzg-rt tbody, .mzg .mzg-rt tr, .mzg .mzg-rt th, .mzg .mzg-rt td { display: block; width: auto; }
+    .mzg .mzg-rt thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .mzg .mzg-rt { background: transparent; }
+    .mzg .mzg-rt tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; padding: 14px 16px; margin: 0 0 10px; border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; background: #fff; }
+    .mzg .mzg-rt tbody th { grid-column: 1 / -1; padding: 0; border: 0; font-size: 16px; white-space: normal; }
+    .mzg .mzg-rt td { padding: 0; border: 0; white-space: normal; font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; }
+    .mzg .mzg-rt td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; color: var(--mz-muted, #4A5E61); margin-bottom: 2px; }
+    .mzg .mzg-totals { grid-template-columns: 1fr; }
+    .mzg .mzg-total b { font-size: 22px; }
+  }
 </style>
 <div class="mz mzg" id="mz-price-guide-{{ mz_key }}"><section class="mz-sec mzg-sec"><div class="mz-wrap">
   <div class="mz-card mz-rte">
@@ -59,13 +71,13 @@
     <h2>{% render 'mz-text', text: s.heading %}</h2>
     {% render 'mz-text', text: s.intro %}
 
-    <div class="mzg-tw"><table>
+    <div class="mzg-tw"><table class="mzg-rt">
       <caption class="mz-sr">{{ mz_t.full }} price by dose in the UK, {{ mz_t.n }} GPhC-registered pharmacies, {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
       <thead><tr><th scope="col">Dose</th><th scope="col">Cheapest today</th><th scope="col">Average</th><th scope="col">Highest</th>{%- if mz_wk > 0 -%}<th scope="col">Per week (cheapest)</th>{%- endif -%}</tr></thead>
       <tbody>
       {%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{%- assign mz_c = mz_t.c[mz_ck] -%}
         {%- if mz_c.min_v -%}
-        <tr><th scope="row">{{ mz_t.name }} {{ col }}</th><td class="lo">{{ mz_c.min }}</td><td>{{ mz_c.avg }}</td><td>{{ mz_c.max }}</td>{%- if mz_wk > 0 -%}<td>{{ mz_c.min_v | times: 100 | divided_by: mz_wk | round | money }}</td>{%- endif -%}</tr>
+        <tr><th scope="row">{{ mz_t.name }} {{ col }}</th><td class="lo" data-label="Cheapest today">{{ mz_c.min }}</td><td data-label="Average">{{ mz_c.avg }}</td><td data-label="Highest">{{ mz_c.max }}</td>{%- if mz_wk > 0 -%}<td data-label="Per week (cheapest)">{{ mz_c.min_v | times: 100 | divided_by: mz_wk | round | money }}</td>{%- endif -%}</tr>
         {%- endif -%}
       {%- endfor -%}
       </tbody>
@@ -85,14 +97,14 @@
 
     {%- if s.cheap_heading != blank -%}
     <h3>{{ s.cheap_heading | escape }}</h3>
-    <div class="mzg-tw"><table>
+    <div class="mzg-tw"><table class="mzg-rt">
       <caption class="mz-sr">The three cheapest UK pharmacies for each {{ mz_t.name }} dose, {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
       <thead><tr><th scope="col">Dose</th><th scope="col">Cheapest</th><th scope="col">2nd</th><th scope="col">3rd</th></tr></thead>
       <tbody>
       {%- for col in mz_t.cols -%}{%- assign mz_ck = col | downcase | remove: ' ' -%}{%- assign mz_c = mz_t.c[mz_ck] -%}
         {%- if mz_c.top.size > 0 -%}
         <tr><th scope="row">{{ mz_t.name }} {{ col }}</th>
-          {%- for i in (0..2) -%}<td{% if i == 0 %} class="lo"{% endif %}>{%- if mz_c.top[i] -%}{{ mz_c.topp[i] }}<span class="ph">{{ mz_c.top[i] | escape }}</span>{%- else -%}—{%- endif -%}</td>{%- endfor -%}
+          {%- for i in (0..2) -%}<td{% if i == 0 %} class="lo"{% endif %} data-label="{% case i %}{% when 0 %}Cheapest{% when 1 %}2nd{% else %}3rd{% endcase %}">{%- if mz_c.top[i] -%}{{ mz_c.topp[i] }}<span class="ph">{{ mz_c.top[i] | escape }}</span>{%- else -%}—{%- endif -%}</td>{%- endfor -%}
         </tr>
         {%- endif -%}
       {%- endfor -%}

@@ -20,6 +20,17 @@
   .mzdc .noc { font-size: 14px; color: var(--mz-muted, #4A5E61); }
   .mzdc td.pr { white-space: nowrap; font-weight: 700; }
   .mzdc .mzdc-note { font-size: 14px; color: var(--mz-muted, #4A5E61); margin-top: 8px; }
+  @media (max-width: 700px) {
+    .mzdc .mzdc-tw { overflow: visible; border: 0; border-radius: 0; }
+    .mzdc table.mzdc-rt, .mzdc .mzdc-rt tbody, .mzdc .mzdc-rt tr, .mzdc .mzdc-rt th, .mzdc .mzdc-rt td { display: block; width: auto; }
+    .mzdc .mzdc-rt thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .mzdc .mzdc-rt { background: transparent; }
+    .mzdc .mzdc-rt tr { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 14px 16px; margin: 0 0 10px; border: 1px solid var(--mz-line, #E2ECEA); border-radius: 14px; background: #fff; }
+    .mzdc .mzdc-rt tbody th { padding: 0; border: 0; font-size: 16px; }
+    .mzdc .mzdc-rt td { padding: 0; border: 0; white-space: normal; overflow-wrap: anywhere; }
+    .mzdc .mzdc-rt td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; color: var(--mz-muted, #4A5E61); margin-bottom: 4px; }
+    .mzdc .code { margin: 0 6px 6px 0; }
+  }
 </style>
 <div class="mz mzdc"><section class="mz-sec" style="padding-top:8px"><div class="mz-wrap">
   <div class="mz-card mz-rte">
@@ -27,7 +38,7 @@
     <h2>{% render 'mz-text', text: s.heading %}</h2>
     {% render 'mz-text', text: s.intro %}
     {%- if mz_t.dc.size > 0 -%}
-    <div class="mzdc-tw"><table>
+    <div class="mzdc-tw"><table class="mzdc-rt">
       <caption class="mz-sr">{{ mz_t.name }} discount codes from GPhC-registered UK pharmacies, checked {{ mz_db.updated | date: '%-d %B %Y' }}</caption>
       <thead><tr><th scope="col">Pharmacy</th><th scope="col">Code</th><th scope="col">What you get</th><th scope="col">{{ mz_t.name }} {{ mz_first }} with the offer</th></tr></thead>
       <tbody>
@@ -36,9 +47,9 @@
         {%- assign mz_d4 = mz_d | slice: 0, 4 | downcase -%}{%- if mz_d4 == 'for ' -%}{%- assign mz_d = mz_d | slice: 4, 200 -%}{%- endif -%}
         <tr>
           <th scope="row">{%- if o.u != blank -%}<a href="{{ o.u | escape }}" target="_blank" rel="sponsored nofollow noopener">{{ o.p | escape }}</a>{%- else -%}{{ o.p | escape }}{%- endif -%}</th>
-          <td>{%- if o.k != blank -%}{%- assign mz_codes = o.k | replace: ' and ', ',' | replace: ' or ', ',' | replace: ' & ', ',' | split: ',' -%}{%- for c in mz_codes -%}<span class="code"><code>{{ c | strip | escape }}</code><button type="button" class="copy" data-copy="{{ c | strip | escape }}" hidden>Copy</button></span> {% endfor -%}{%- else -%}<span class="noc">No code needed</span>{%- endif -%}</td>
-          <td>{{ mz_d | default: 'Discount applied at checkout' | escape }}</td>
-          <td class="pr">{{ o.f }}</td>
+          <td data-label="Code">{%- if o.k != blank -%}{%- assign mz_codes = o.k | replace: ' and ', ',' | replace: ' or ', ',' | replace: ' & ', ',' | split: ',' -%}{%- for c in mz_codes -%}<span class="code"><code>{{ c | strip | escape }}</code><button type="button" class="copy" data-copy="{{ c | strip | escape }}" hidden>Copy</button></span> {% endfor -%}{%- else -%}<span class="noc">No code needed</span>{%- endif -%}</td>
+          <td data-label="What you get">{{ mz_d | default: 'Discount applied at checkout' | escape }}</td>
+          <td class="pr" data-label="{{ mz_t.name }} {{ mz_first }} with the offer">{{ o.f }}</td>
         </tr>
       {%- endfor -%}
       </tbody>
