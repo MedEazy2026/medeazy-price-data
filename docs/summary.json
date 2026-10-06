@@ -5,16 +5,16 @@
   "tracking_since": "2026-10-04",
   "pharmacies_tracked": 74,
   "listings": 1162,
-  "price_changes_recorded": 0,
+  "price_changes_recorded": 16,
   "biggest_gap": {
     "treatment": "Wegovy injection",
     "product": "Wegovy injection",
     "dose": "7.2mg",
     "pharmacies": 41,
-    "lowest": 181.0,
+    "lowest": 176.0,
     "median": 279.0,
     "highest": 599.0,
-    "gap": 418.0
+    "gap": 423.0
   },
   "lowest_by_treatment": {
     "Mounjaro": 99.0,
@@ -38,20 +38,20 @@
       "product": "Mounjaro",
       "dose": "5mg",
       "pharmacies": 71,
-      "lowest": 128.0,
+      "lowest": 123.0,
       "median": 179.99,
       "highest": 249.0,
-      "gap": 121.0
+      "gap": 126.0
     },
     {
       "treatment": "Mounjaro",
       "product": "Mounjaro",
       "dose": "7.5mg",
       "pharmacies": 71,
-      "lowest": 178.0,
+      "lowest": 176.0,
       "median": 239.99,
       "highest": 299.0,
-      "gap": 121.0
+      "gap": 123.0
     },
     {
       "treatment": "Mounjaro",
@@ -148,30 +148,30 @@
       "product": "Wegovy injection",
       "dose": "1.7mg",
       "pharmacies": 73,
-      "lowest": 101.0,
+      "lowest": 96.0,
       "median": 169.99,
       "highest": 249.95,
-      "gap": 148.95
+      "gap": 153.95
     },
     {
       "treatment": "Wegovy injection",
       "product": "Wegovy injection",
       "dose": "2.4mg",
       "pharmacies": 73,
-      "lowest": 120.0,
+      "lowest": 116.0,
       "median": 199.0,
       "highest": 339.95,
-      "gap": 219.95
+      "gap": 223.95
     },
     {
       "treatment": "Wegovy injection",
       "product": "Wegovy injection",
       "dose": "7.2mg",
       "pharmacies": 41,
-      "lowest": 181.0,
+      "lowest": 176.0,
       "median": 279.0,
       "highest": 599.0,
-      "gap": 418.0
+      "gap": 423.0
     },
     {
       "treatment": "Wegovy pill",
