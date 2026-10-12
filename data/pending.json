@@ -1,1 +1,18 @@
-{}
+{
+ "wegovy-pill|Oushk|1_5mg": {
+  "first_seen": "2026-10-12T15:39:23+00:00",
+  "price": 135.0
+ },
+ "wegovy-pill|Oushk|4mg": {
+  "first_seen": "2026-10-12T15:39:23+00:00",
+  "price": 139.0
+ },
+ "wegovy-pill|Oushk|9mg": {
+  "first_seen": "2026-10-12T15:39:23+00:00",
+  "price": 155.0
+ },
+ "wegovy-pill|The Family Chemist|9mg": {
+  "first_seen": "2026-10-12T15:39:23+00:00",
+  "price": 169.99
+ }
+}
