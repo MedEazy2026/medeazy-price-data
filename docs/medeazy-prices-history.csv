@@ -1631,3 +1631,9 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,2.5mg,Everslim,9012643,,129.99,,,MONJ20
 2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,5mg,Everslim,9012643,,159.99,,,MONJ20
 2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,7.5mg,Everslim,9012643,,204.99,,,MONJ20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,0.25mg,Everslim,9012643,,79.99,,,WEGOVY20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,0.5mg,Everslim,9012643,,109.99,,,WEGOVY20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,1.7mg,Everslim,9012643,,204.99,,,WEGOVY20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,1mg,Everslim,9012643,,109.99,,,WEGOVY20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,2.4mg,Everslim,9012643,,279.99,,,WEGOVY20
+2026-10-12T23:34:15Z,2026-10-13,listed,Wegovy injection,Wegovy injection,7.2mg,Everslim,9012643,,229.99,,,WEGOVY20
