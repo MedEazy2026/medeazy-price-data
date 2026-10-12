@@ -11864,7 +11864,7 @@
   "gphc_number": "9012610",
   "pharmacy": "Oushk",
   "pharmacy_website": "oushkpharmacy.com",
-  "price_gbp": 85.0,
+  "price_gbp": 135.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -11890,7 +11890,7 @@
   "gphc_number": "9012610",
   "pharmacy": "Oushk",
   "pharmacy_website": "oushkpharmacy.com",
-  "price_gbp": 89.0,
+  "price_gbp": 139.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -11903,7 +11903,7 @@
   "gphc_number": "9012610",
   "pharmacy": "Oushk",
   "pharmacy_website": "oushkpharmacy.com",
-  "price_gbp": 105.0,
+  "price_gbp": 155.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -13018,10 +13018,10 @@
   "discount_detail": "",
   "dose": "9mg",
   "form": "daily tablet",
-  "gphc_number": "9012318",
+  "gphc_number": "9012915",
   "pharmacy": "The Family Chemist",
   "pharmacy_website": "thefamilychemist.co.uk",
-  "price_gbp": 110.99,
+  "price_gbp": 169.99,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },

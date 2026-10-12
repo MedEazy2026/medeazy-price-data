@@ -5,7 +5,7 @@
   "tracking_since": "2026-10-04",
   "pharmacies_tracked": 74,
   "listings": 1459,
-  "price_changes_recorded": 163,
+  "price_changes_recorded": 167,
   "biggest_gap": {
     "treatment": "Wegovy injection",
     "product": "Wegovy injection",
@@ -240,7 +240,7 @@
       "dose": "1.5mg",
       "pharmacies": 65,
       "lowest": 54.0,
-      "median": 99.99,
+      "median": 100.0,
       "highest": 154.0,
       "gap": 100.0
     },
@@ -250,7 +250,7 @@
       "dose": "4mg",
       "pharmacies": 65,
       "lowest": 75.0,
-      "median": 117.97,
+      "median": 117.99,
       "highest": 185.0,
       "gap": 110.0
     },
@@ -260,7 +260,7 @@
       "dose": "9mg",
       "pharmacies": 64,
       "lowest": 88.0,
-      "median": 139.0,
+      "median": 139.99,
       "highest": 219.0,
       "gap": 131.0
     },

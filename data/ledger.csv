@@ -1621,3 +1621,7 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy injection,Wegovy injection,1mg,Zava,9012701,149.99,118.99,-31.00,-20.7,
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy injection,Wegovy injection,2.4mg,Zava,9012701,189.99,178.99,-11.00,-5.8,
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy injection,Wegovy injection,7.2mg,Zava,9012701,259.99,238.99,-21.00,-8.1,
+2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,1.5mg,Oushk,9012610,85.00,135.00,50.00,58.8,
+2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,4mg,Oushk,9012610,89.00,139.00,50.00,56.2,
+2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,9mg,Oushk,9012610,105.00,155.00,50.00,47.6,
+2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,9mg,The Family Chemist,9012915,110.99,169.99,59.00,53.2,
