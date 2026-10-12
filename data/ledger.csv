@@ -1625,3 +1625,9 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,4mg,Oushk,9012610,89.00,139.00,50.00,56.2,
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,9mg,Oushk,9012610,105.00,155.00,50.00,47.6,
 2026-10-12T15:39:23Z,2026-10-12,price_change,Wegovy pill,Wegovy pill,9mg,The Family Chemist,9012915,110.99,169.99,59.00,53.2,
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,10mg,Everslim,9012643,,249.99,,,MONJ20
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,12.5mg,Everslim,9012643,,269.98,,,MONJ20
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,15mg,Everslim,9012643,,279.99,,,MONJ20
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,2.5mg,Everslim,9012643,,129.99,,,MONJ20
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,5mg,Everslim,9012643,,159.99,,,MONJ20
+2026-10-12T22:34:38Z,2026-10-12,listed,Mounjaro,Mounjaro,7.5mg,Everslim,9012643,,204.99,,,MONJ20
