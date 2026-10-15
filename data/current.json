@@ -1715,6 +1715,84 @@
   "product": "Foundayo",
   "treatment": "Foundayo"
  },
+ "foundayo|New Health|0_8mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "0.8mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 53.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
+ "foundayo|New Health|14_5mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "14.5mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 121.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
+ "foundayo|New Health|17_2mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "17.2mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 121.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
+ "foundayo|New Health|2_5mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "2.5mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 70.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
+ "foundayo|New Health|5_5mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "5.5mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 73.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
+ "foundayo|New Health|9mg": {
+  "active_ingredient": "orforglipron",
+  "discount_code": "",
+  "discount_detail": "",
+  "dose": "9mg",
+  "form": "daily tablet",
+  "gphc_number": "9011199",
+  "pharmacy": "New Health",
+  "pharmacy_website": "new.co.uk",
+  "price_gbp": 93.0,
+  "product": "Foundayo",
+  "treatment": "Foundayo"
+ },
  "foundayo|Oushk|0_8mg": {
   "active_ingredient": "orforglipron",
   "discount_code": "",
@@ -11838,7 +11916,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 54.0,
+  "price_gbp": 60.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -11851,7 +11929,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 125.0,
+  "price_gbp": 148.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -11864,7 +11942,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 75.0,
+  "price_gbp": 79.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -11877,7 +11955,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 88.0,
+  "price_gbp": 90.0,
   "product": "Wegovy pill",
   "treatment": "Wegovy pill"
  },
@@ -16271,7 +16349,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 49.0,
+  "price_gbp": 51.0,
   "product": "Wegovy injection",
   "treatment": "Wegovy injection"
  },
@@ -16284,7 +16362,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 68.0,
+  "price_gbp": 70.0,
   "product": "Wegovy injection",
   "treatment": "Wegovy injection"
  },
@@ -16297,7 +16375,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 101.0,
+  "price_gbp": 100.0,
   "product": "Wegovy injection",
   "treatment": "Wegovy injection"
  },
@@ -16310,7 +16388,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 75.0,
+  "price_gbp": 77.0,
   "product": "Wegovy injection",
   "treatment": "Wegovy injection"
  },
@@ -16336,7 +16414,7 @@
   "gphc_number": "9011199",
   "pharmacy": "New Health",
   "pharmacy_website": "new.co.uk",
-  "price_gbp": 184.0,
+  "price_gbp": 180.0,
   "product": "Wegovy injection",
   "treatment": "Wegovy injection"
  },
