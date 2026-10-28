@@ -1658,3 +1658,9 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-10-23T15:54:54Z,2026-10-23,listed,Mounjaro,Mounjaro,2.5mg,Livewell Dispensary,1103544,,129.99,,,MEDEAZY50
 2026-10-23T15:54:54Z,2026-10-23,listed,Mounjaro,Mounjaro,5mg,Livewell Dispensary,1103544,,149.99,,,MEDEAZY50
 2026-10-23T15:54:54Z,2026-10-23,listed,Mounjaro,Mounjaro,7.5mg,Livewell Dispensary,1103544,,209.99,,,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,10mg,Livewell Dispensary,1103544,239.99,211.45,-28.54,-11.9,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,12.5mg,Livewell Dispensary,1103544,254.99,228.70,-26.29,-10.3,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,15mg,Livewell Dispensary,1103544,329.99,248.50,-81.49,-24.7,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,2.5mg,Livewell Dispensary,1103544,129.99,120.70,-9.29,-7.1,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,5mg,Livewell Dispensary,1103544,149.99,136.00,-13.99,-9.3,MEDEAZY50
+2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,7.5mg,Livewell Dispensary,1103544,209.99,187.15,-22.84,-10.9,MEDEAZY50

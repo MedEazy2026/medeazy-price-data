@@ -5702,7 +5702,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 239.99,
+  "price_gbp": 211.45,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5715,7 +5715,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 254.99,
+  "price_gbp": 228.7,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5728,7 +5728,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 329.99,
+  "price_gbp": 248.5,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5741,7 +5741,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 129.99,
+  "price_gbp": 120.7,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5754,7 +5754,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 149.99,
+  "price_gbp": 136.0,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5767,7 +5767,7 @@
   "gphc_number": "1103544",
   "pharmacy": "Livewell Dispensary",
   "pharmacy_website": "livewelldispensary.co.uk",
-  "price_gbp": 209.99,
+  "price_gbp": 187.15,
   "product": "Mounjaro",
   "treatment": "Mounjaro"
  },
@@ -5851,7 +5851,7 @@
  },
  "mounjaro|Lotus Weight Loss|10mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "10mg",
   "form": "weekly injection",
@@ -5864,7 +5864,7 @@
  },
  "mounjaro|Lotus Weight Loss|12_5mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "12.5mg",
   "form": "weekly injection",
@@ -5877,7 +5877,7 @@
  },
  "mounjaro|Lotus Weight Loss|15mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "15mg",
   "form": "weekly injection",
@@ -5890,7 +5890,7 @@
  },
  "mounjaro|Lotus Weight Loss|2_5mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "2.5mg",
   "form": "weekly injection",
@@ -5903,7 +5903,7 @@
  },
  "mounjaro|Lotus Weight Loss|5mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "5mg",
   "form": "weekly injection",
@@ -5916,7 +5916,7 @@
  },
  "mounjaro|Lotus Weight Loss|7_5mg": {
   "active_ingredient": "tirzepatide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "for \u00a345 off all doses for new customers",
   "dose": "7.5mg",
   "form": "weekly injection",
@@ -11519,7 +11519,7 @@
  },
  "wegovy-pill|Lotus Weight Loss|1_5mg": {
   "active_ingredient": "oral semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "1.5mg",
   "form": "daily tablet",
@@ -11532,7 +11532,7 @@
  },
  "wegovy-pill|Lotus Weight Loss|25mg": {
   "active_ingredient": "oral semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "25mg",
   "form": "daily tablet",
@@ -11545,7 +11545,7 @@
  },
  "wegovy-pill|Lotus Weight Loss|4mg": {
   "active_ingredient": "oral semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "4mg",
   "form": "daily tablet",
@@ -11558,7 +11558,7 @@
  },
  "wegovy-pill|Lotus Weight Loss|9mg": {
   "active_ingredient": "oral semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "9mg",
   "form": "daily tablet",
@@ -15744,7 +15744,7 @@
  },
  "wegovy|Lotus Weight Loss|0_25mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "0.25mg",
   "form": "weekly injection",
@@ -15757,7 +15757,7 @@
  },
  "wegovy|Lotus Weight Loss|0_5mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "0.5mg",
   "form": "weekly injection",
@@ -15770,7 +15770,7 @@
  },
  "wegovy|Lotus Weight Loss|1_7mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "1.7mg",
   "form": "weekly injection",
@@ -15783,7 +15783,7 @@
  },
  "wegovy|Lotus Weight Loss|1mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "1mg",
   "form": "weekly injection",
@@ -15796,7 +15796,7 @@
  },
  "wegovy|Lotus Weight Loss|2_4mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "2.4mg",
   "form": "weekly injection",
@@ -15809,7 +15809,7 @@
  },
  "wegovy|Lotus Weight Loss|7_2mg": {
   "active_ingredient": "semaglutide",
-  "discount_code": "LWSAVE40",
+  "discount_code": "LWSAVE",
   "discount_detail": "\u00a345 off all doses for new customers",
   "dose": "7.2mg",
   "form": "weekly injection",
