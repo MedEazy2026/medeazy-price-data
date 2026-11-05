@@ -1664,3 +1664,6 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,2.5mg,Livewell Dispensary,1103544,129.99,120.70,-9.29,-7.1,MEDEAZY50
 2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,5mg,Livewell Dispensary,1103544,149.99,136.00,-13.99,-9.3,MEDEAZY50
 2026-10-28T20:58:35Z,2026-10-28,price_change,Mounjaro,Mounjaro,7.5mg,Livewell Dispensary,1103544,209.99,187.15,-22.84,-10.9,MEDEAZY50
+2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,0.25mg,Lotus Weight Loss,9011284,54.00,49.00,-5.00,-9.3,LWSAVE
+2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,0.5mg,Lotus Weight Loss,9011284,75.00,71.50,-3.50,-4.7,LWSAVE
+2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,7.2mg,Lotus Weight Loss,9011284,176.00,151.00,-25.00,-14.2,LWSAVE
