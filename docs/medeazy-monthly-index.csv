@@ -27,25 +27,25 @@ month,complete_month,treatment,product,dose,pharmacies_listed,lowest_price_gbp,m
 2026-11,no,Foundayo,Foundayo,0.8mg,48,59.99,99.00,138.99,79.00,99.00,13
 2026-11,no,Foundayo,Foundayo,2.5mg,48,65.00,117.99,159.00,94.00,117.99,13
 2026-11,no,Foundayo,Foundayo,5.5mg,48,65.00,128.50,179.00,114.00,128.50,13
-2026-11,no,Foundayo,Foundayo,9mg,48,84.00,158.99,199.00,115.00,158.99,13
-2026-11,no,Foundayo,Foundayo,14.5mg,48,112.00,172.50,229.00,117.00,172.50,13
-2026-11,no,Foundayo,Foundayo,17.2mg,48,112.00,188.49,229.00,117.00,188.49,13
-2026-11,no,Mounjaro,Mounjaro,2.5mg,73,90.00,149.99,219.00,129.00,149.99,13
-2026-11,no,Mounjaro,Mounjaro,5mg,73,121.00,179.99,249.00,128.00,179.99,13
-2026-11,no,Mounjaro,Mounjaro,7.5mg,73,169.00,239.99,299.00,130.00,239.99,13
-2026-11,no,Mounjaro,Mounjaro,10mg,73,189.00,268.99,324.00,135.00,268.99,13
-2026-11,no,Mounjaro,Mounjaro,12.5mg,73,203.00,288.99,344.00,141.00,288.99,13
-2026-11,no,Mounjaro,Mounjaro,15mg,73,220.00,299.99,359.00,139.00,299.99,13
+2026-11,no,Foundayo,Foundayo,9mg,48,84.00,153.48,199.00,115.00,158.57,13
+2026-11,no,Foundayo,Foundayo,14.5mg,48,112.00,170.00,229.00,117.00,172.31,13
+2026-11,no,Foundayo,Foundayo,17.2mg,48,112.00,187.49,229.00,117.00,188.41,13
+2026-11,no,Mounjaro,Mounjaro,2.5mg,73,90.00,149.00,214.00,124.00,149.91,13
+2026-11,no,Mounjaro,Mounjaro,5mg,73,121.00,179.00,244.00,123.00,179.91,13
+2026-11,no,Mounjaro,Mounjaro,7.5mg,73,165.00,239.99,294.00,129.00,239.99,13
+2026-11,no,Mounjaro,Mounjaro,10mg,73,189.00,260.00,324.00,135.00,268.30,13
+2026-11,no,Mounjaro,Mounjaro,12.5mg,73,203.00,288.00,344.00,141.00,288.91,13
+2026-11,no,Mounjaro,Mounjaro,15mg,73,220.00,299.00,359.00,139.00,299.91,13
 2026-11,no,Orlistat,Alli,60mg,17,34.99,45.99,99.00,64.01,45.99,13
-2026-11,no,Orlistat,Orlistat,120mg,32,28.98,36.99,89.00,60.02,36.99,13
-2026-11,no,Orlistat,Xenical,120mg,27,39.69,49.99,68.99,29.30,49.99,13
-2026-11,no,Wegovy injection,Wegovy injection,0.25mg,74,49.00,99.99,169.95,120.95,99.99,13
-2026-11,no,Wegovy injection,Wegovy injection,0.5mg,74,61.00,119.00,179.00,118.00,119.00,13
-2026-11,no,Wegovy injection,Wegovy injection,1mg,74,65.00,129.99,189.00,124.00,129.99,13
-2026-11,no,Wegovy injection,Wegovy injection,1.7mg,74,83.00,169.99,249.95,166.95,169.99,13
+2026-11,no,Orlistat,Orlistat,120mg,32,25.99,36.99,89.00,63.01,36.99,13
+2026-11,no,Orlistat,Xenical,120mg,27,36.99,49.99,68.99,32.00,49.99,13
+2026-11,no,Wegovy injection,Wegovy injection,0.25mg,74,49.00,99.64,169.95,120.95,99.96,13
+2026-11,no,Wegovy injection,Wegovy injection,0.5mg,74,61.00,119.00,169.95,108.95,119.00,13
+2026-11,no,Wegovy injection,Wegovy injection,1mg,74,65.00,129.97,189.00,124.00,129.99,13
+2026-11,no,Wegovy injection,Wegovy injection,1.7mg,74,83.00,169.50,249.95,166.95,169.95,13
 2026-11,no,Wegovy injection,Wegovy injection,2.4mg,74,102.00,199.00,339.95,237.95,199.00,13
-2026-11,no,Wegovy injection,Wegovy injection,7.2mg,55,138.00,259.99,599.00,461.00,259.99,13
+2026-11,no,Wegovy injection,Wegovy injection,7.2mg,56,138.00,259.50,599.00,461.00,259.95,13
 2026-11,no,Wegovy pill,Wegovy pill,1.5mg,65,59.99,100.00,154.00,94.01,100.00,13
-2026-11,no,Wegovy pill,Wegovy pill,4mg,65,76.00,117.99,185.00,109.00,117.99,13
+2026-11,no,Wegovy pill,Wegovy pill,4mg,65,76.00,119.00,185.00,109.00,118.07,13
 2026-11,no,Wegovy pill,Wegovy pill,9mg,64,91.00,139.99,219.00,128.00,139.99,13
-2026-11,no,Wegovy pill,Wegovy pill,25mg,62,139.00,194.47,269.00,130.00,194.47,13
+2026-11,no,Wegovy pill,Wegovy pill,25mg,62,139.00,194.97,269.00,130.00,194.51,13
