@@ -1667,3 +1667,25 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,0.25mg,Lotus Weight Loss,9011284,54.00,49.00,-5.00,-9.3,LWSAVE
 2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,0.5mg,Lotus Weight Loss,9011284,75.00,71.50,-3.50,-4.7,LWSAVE
 2026-11-05T22:04:36Z,2026-11-05,price_change,Wegovy injection,Wegovy injection,7.2mg,Lotus Weight Loss,9011284,176.00,151.00,-25.00,-14.2,LWSAVE
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,0.8mg,New Health,9011199,53.00,65.00,12.00,22.6,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,14.5mg,New Health,9011199,121.00,112.00,-9.00,-7.4,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,17.2mg,New Health,9011199,121.00,112.00,-9.00,-7.4,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,2.5mg,New Health,9011199,70.00,65.00,-5.00,-7.1,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,5.5mg,New Health,9011199,73.00,65.00,-8.00,-11.0,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Foundayo,Foundayo,9mg,New Health,9011199,93.00,84.00,-9.00,-9.7,
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,10mg,New Health,9011199,198.00,189.00,-9.00,-4.5,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,12.5mg,New Health,9011199,212.00,203.00,-9.00,-4.2,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,15mg,New Health,9011199,229.00,220.00,-9.00,-3.9,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,2.5mg,New Health,9011199,99.00,90.00,-9.00,-9.1,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,5mg,New Health,9011199,130.00,121.00,-9.00,-6.9,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Mounjaro,Mounjaro,7.5mg,New Health,9011199,178.00,169.00,-9.00,-5.1,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy pill,Wegovy pill,1.5mg,New Health,9011199,60.00,74.00,14.00,23.3,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy pill,Wegovy pill,25mg,New Health,9011199,148.00,139.00,-9.00,-6.1,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy pill,Wegovy pill,4mg,New Health,9011199,79.00,76.00,-3.00,-3.8,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy pill,Wegovy pill,9mg,New Health,9011199,90.00,91.00,1.00,1.1,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,0.25mg,New Health,9011199,51.00,59.00,8.00,15.7,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,0.5mg,New Health,9011199,70.00,61.00,-9.00,-12.9,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,1.7mg,New Health,9011199,100.00,83.00,-17.00,-17.0,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,1mg,New Health,9011199,77.00,65.00,-12.00,-15.6,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,2.4mg,New Health,9011199,120.00,102.00,-18.00,-15.0,MedEazy9
+2026-11-13T17:49:39Z,2026-11-13,price_change,Wegovy injection,Wegovy injection,7.2mg,New Health,9011199,180.00,138.00,-42.00,-23.3,MedEazy9
