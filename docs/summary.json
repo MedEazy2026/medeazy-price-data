@@ -1,11 +1,11 @@
 {
   "source": "MedEazy (medeazy.co.uk/data)",
   "licence": "CC BY 4.0",
-  "last_checked_date": "2026-11-13",
+  "last_checked_date": "2026-11-14",
   "tracking_since": "2026-10-04",
   "pharmacies_tracked": 76,
   "listings": 1484,
-  "price_changes_recorded": 286,
+  "price_changes_recorded": 292,
   "biggest_gap": {
     "treatment": "Wegovy injection",
     "product": "Wegovy injection",
@@ -40,7 +40,7 @@
       "dose": "2.5mg",
       "pharmacies": 48,
       "lowest": 65.0,
-      "median": 117.99,
+      "median": 118.49,
       "highest": 159.0,
       "gap": 94.0
     },
@@ -90,7 +90,7 @@
       "dose": "2.5mg",
       "pharmacies": 73,
       "lowest": 90.0,
-      "median": 149.0,
+      "median": 148.99,
       "highest": 214.0,
       "gap": 124.0
     },
@@ -149,10 +149,10 @@
       "product": "Alli",
       "dose": "60mg",
       "pharmacies": 17,
-      "lowest": 34.99,
-      "median": 45.99,
+      "lowest": 29.99,
+      "median": 44.99,
       "highest": 99.0,
-      "gap": 64.01
+      "gap": 69.01
     },
     {
       "treatment": "Orlistat",
@@ -240,7 +240,7 @@
       "dose": "1.5mg",
       "pharmacies": 65,
       "lowest": 59.99,
-      "median": 100.0,
+      "median": 105.0,
       "highest": 154.0,
       "gap": 94.01
     },
