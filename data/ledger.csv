@@ -1775,3 +1775,23 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-11-13T23:38:53Z,2026-11-13,price_change,Mounjaro,Mounjaro,2.5mg,Curate,9012920,189.00,95.00,-94.00,-49.7,
 2026-11-13T23:38:53Z,2026-11-13,price_change,Orlistat,Alli,60mg,Medexpress,9012633,55.99,29.99,-26.00,-46.4,
 2026-11-13T23:38:53Z,2026-11-13,price_change,Wegovy pill,Wegovy pill,1.5mg,Curate,9012920,94.00,135.00,41.00,43.6,
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,0.8mg,Lotus Weight Loss,9011284,94.00,64.00,-30.00,-31.9,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,14.5mg,Lotus Weight Loss,9011284,161.00,111.00,-50.00,-31.1,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,17.2mg,Lotus Weight Loss,9011284,161.00,111.00,-50.00,-31.1,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,9mg,Lotus Weight Loss,9011284,133.00,83.00,-50.00,-37.6,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,10mg,Lotus Weight Loss,9011284,201.00,196.00,-5.00,-2.5,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,12.5mg,Lotus Weight Loss,9011284,223.00,218.00,-5.00,-2.2,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,15mg,Lotus Weight Loss,9011284,239.00,234.00,-5.00,-2.1,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,2.5mg,Lotus Weight Loss,9011284,109.00,104.00,-5.00,-4.6,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,5mg,Lotus Weight Loss,9011284,123.00,118.00,-5.00,-4.1,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Mounjaro,Mounjaro,7.5mg,Lotus Weight Loss,9011284,176.00,171.00,-5.00,-2.8,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy pill,Wegovy pill,1.5mg,Lotus Weight Loss,9011284,74.00,69.00,-5.00,-6.8,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy pill,Wegovy pill,25mg,Lotus Weight Loss,9011284,144.00,139.00,-5.00,-3.5,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy pill,Wegovy pill,4mg,Lotus Weight Loss,9011284,84.00,79.00,-5.00,-6.0,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy pill,Wegovy pill,9mg,Lotus Weight Loss,9011284,101.00,95.00,-6.00,-5.9,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,0.25mg,Lotus Weight Loss,9011284,49.00,44.00,-5.00,-10.2,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,0.5mg,Lotus Weight Loss,9011284,71.50,66.50,-5.00,-7.0,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,1.7mg,Lotus Weight Loss,9011284,96.00,91.00,-5.00,-5.2,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,1mg,Lotus Weight Loss,9011284,75.00,70.00,-5.00,-6.7,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,2.4mg,Lotus Weight Loss,9011284,116.00,111.00,-5.00,-4.3,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,7.2mg,Lotus Weight Loss,9011284,151.00,146.00,-5.00,-3.3,LWSAVE

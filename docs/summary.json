@@ -5,7 +5,7 @@
   "tracking_since": "2026-10-04",
   "pharmacies_tracked": 76,
   "listings": 1484,
-  "price_changes_recorded": 292,
+  "price_changes_recorded": 312,
   "biggest_gap": {
     "treatment": "Wegovy injection",
     "product": "Wegovy injection",
@@ -20,7 +20,7 @@
     "Foundayo": 59.99,
     "Mounjaro": 90.0,
     "Orlistat": 25.99,
-    "Wegovy injection": 49.0,
+    "Wegovy injection": 44.0,
     "Wegovy pill": 59.99
   },
   "doses": [
@@ -59,30 +59,30 @@
       "product": "Foundayo",
       "dose": "9mg",
       "pharmacies": 48,
-      "lowest": 84.0,
+      "lowest": 83.0,
       "median": 153.48,
       "highest": 199.0,
-      "gap": 115.0
+      "gap": 116.0
     },
     {
       "treatment": "Foundayo",
       "product": "Foundayo",
       "dose": "14.5mg",
       "pharmacies": 48,
-      "lowest": 112.0,
+      "lowest": 111.0,
       "median": 170.0,
       "highest": 229.0,
-      "gap": 117.0
+      "gap": 118.0
     },
     {
       "treatment": "Foundayo",
       "product": "Foundayo",
       "dose": "17.2mg",
       "pharmacies": 48,
-      "lowest": 112.0,
+      "lowest": 111.0,
       "median": 187.49,
       "highest": 229.0,
-      "gap": 117.0
+      "gap": 118.0
     },
     {
       "treatment": "Mounjaro",
@@ -99,10 +99,10 @@
       "product": "Mounjaro",
       "dose": "5mg",
       "pharmacies": 73,
-      "lowest": 121.0,
+      "lowest": 118.0,
       "median": 179.0,
       "highest": 244.0,
-      "gap": 123.0
+      "gap": 126.0
     },
     {
       "treatment": "Mounjaro",
@@ -179,10 +179,10 @@
       "product": "Wegovy injection",
       "dose": "0.25mg",
       "pharmacies": 74,
-      "lowest": 49.0,
+      "lowest": 44.0,
       "median": 99.64,
       "highest": 169.95,
-      "gap": 120.95
+      "gap": 125.95
     },
     {
       "treatment": "Wegovy injection",
