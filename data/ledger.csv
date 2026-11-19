@@ -1795,3 +1795,5 @@ detected_at_utc,date_uk,event,treatment,product,dose,pharmacy,gphc_number,old_pr
 2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,1mg,Lotus Weight Loss,9011284,75.00,70.00,-5.00,-6.7,LWSAVE
 2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,2.4mg,Lotus Weight Loss,9011284,116.00,111.00,-5.00,-4.3,LWSAVE
 2026-11-18T22:03:46Z,2026-11-18,price_change,Wegovy injection,Wegovy injection,7.2mg,Lotus Weight Loss,9011284,151.00,146.00,-5.00,-3.3,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,2.5mg,Lotus Weight Loss,9011284,114.00,64.00,-50.00,-43.9,LWSAVE
+2026-11-18T22:03:46Z,2026-11-18,price_change,Foundayo,Foundayo,5.5mg,Lotus Weight Loss,9011284,114.00,64.00,-50.00,-43.9,LWSAVE

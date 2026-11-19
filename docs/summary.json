@@ -1,11 +1,11 @@
 {
   "source": "MedEazy (medeazy.co.uk/data)",
   "licence": "CC BY 4.0",
-  "last_checked_date": "2026-11-18",
+  "last_checked_date": "2026-11-19",
   "tracking_since": "2026-10-04",
   "pharmacies_tracked": 76,
   "listings": 1484,
-  "price_changes_recorded": 312,
+  "price_changes_recorded": 314,
   "biggest_gap": {
     "treatment": "Wegovy injection",
     "product": "Wegovy injection",
@@ -39,20 +39,20 @@
       "product": "Foundayo",
       "dose": "2.5mg",
       "pharmacies": 48,
-      "lowest": 65.0,
+      "lowest": 64.0,
       "median": 118.49,
       "highest": 159.0,
-      "gap": 94.0
+      "gap": 95.0
     },
     {
       "treatment": "Foundayo",
       "product": "Foundayo",
       "dose": "5.5mg",
       "pharmacies": 48,
-      "lowest": 65.0,
+      "lowest": 64.0,
       "median": 128.5,
       "highest": 179.0,
-      "gap": 114.0
+      "gap": 115.0
     },
     {
       "treatment": "Foundayo",
